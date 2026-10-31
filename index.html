@@ -3,1125 +3,435 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#F1EDE8">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="Rafaela Moura">
-<meta name="robots" content="noindex">
-<link rel="icon" href="icon-192.png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="manifest" href="manifest.webmanifest">
-<script src="demo-db.js"></script>
-<title>Rafaela Moura · Agenda</title>
-<meta name="color-scheme" content="light only">
+<title>Rafaela Moura · Lash Designer · Extensão de cílios em Arcos-MG</title>
+<meta name="description" content="Extensão de cílios com técnica e naturalidade. Fio a fio, volume brasileiro, egípcio, 5D, fox eyes, mega fox e capping. Atendimento personalizado em Arcos-MG.">
+<meta name="theme-color" content="#1E1A18">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Rafaela Moura · Lash Designer">
+<meta property="og:description" content="Extensão de cílios com técnica e naturalidade. Atendimento personalizado em Arcos-MG.">
+<meta property="og:image" content="https://rafaelamouralash.github.io/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://rafaelamouralash.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="img/icon-192.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Pinyon+Script&display=swap">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Pinyon+Script&display=swap">
+<link rel="preload" as="image" href="img/hero.jpg">
 <style>
-/* Layout: app de uma coluna, pensado pro celular; abas fixas embaixo, conteúdo rola acima.
-   Identidade da Rafaela Moura | Lash Designer: fundo creme, traço preto, letra cursiva no nome
-   e caixa-alta espaçada nos títulos, como no logo e no post de cuidados dela. Sempre claro. */
+/* Identidade da Rafaela Moura | Lash Designer: creme, preto e grafite, letra cursiva no destaque e
+   caixa-alta espaçada nos títulos, igual ao post "Como cuidar dos seus cílios". */
 :root{
-  color-scheme:light only;
-  --bg:#F1EDE8; --surface:#FBF9F6; --ink:#262322; --muted:#7C746D; --line:#E2DCD4;
-  --accent:#2E2A28; --accent-ink:#FFFFFF; --accent-soft:#E7E1D9;
-  --gold:linear-gradient(135deg,#4A4440 0%,#2E2A28 55%,#171514 100%);
-  --gold-text:linear-gradient(180deg,#4A4440 0%,#262322 100%);
-  --ok:#3F7A4E; --ok-soft:#E4F0E2; --warn:#A35E12; --warn-soft:#FBEBD3; --bad:#A83A2E; --bad-soft:#F6E1DC;
-  --info:#5A6E8C; --info-soft:#E8ECF2;
-  --f-display:"Montserrat", system-ui, -apple-system, sans-serif;
-  --f-script:"Pinyon Script", "Great Vibes", cursive;
-  --f-body:"Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --f-num:"Montserrat", system-ui, -apple-system, sans-serif;
-  --r:14px;
+  --cream:#F3EEE8; --cream2:#EAE3DA; --paper:#FBF8F4; --ink:#1C1917; --soft:#5E5650; --mute:#8D847C;
+  --line:#D9D0C5; --dark:#1E1A18; --dark2:#2A2421; --nude:#D8C2B3; --rose:#B4897A;
+  --sans:"Montserrat",system-ui,-apple-system,"Segoe UI",sans-serif; --script:"Pinyon Script","Great Vibes",cursive;
+  --wrap:1120px;
 }
-html,body{height:100%}
-body{background:var(--bg) radial-gradient(120% 60% at 50% 0%,#FAF7F3 0%,transparent 70%) no-repeat;color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.45}
-*{box-sizing:border-box}
-.wrap{max-width:760px;margin:0 auto;padding-inline:16px;padding-block:12px 96px}
-header.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:6px 14px;border-bottom:1px solid var(--line);margin-bottom:14px;position:relative}
-header.top::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:linear-gradient(90deg,transparent,#9C938A,transparent)}
-.logo{display:flex;align-items:center;gap:12px;min-width:0}
-.mono{width:46px;height:46px;border-radius:50%;border:1.5px solid #3A3532;box-shadow:inset 0 0 0 3px var(--surface),inset 0 0 0 4px #D8D0C6;display:flex;align-items:center;justify-content:center;flex:none;background:var(--surface)}
-.mono b{font:600 19px var(--f-display);letter-spacing:-.04em;background:var(--gold-text);-webkit-background-clip:text;background-clip:text;color:transparent}
-.brand{font-family:var(--f-display);font-weight:600;font-size:22px;line-height:1.05;letter-spacing:.06em;text-wrap:balance;min-width:0}
-.brand .pre{display:block;font:500 10.5px var(--f-display);letter-spacing:.42em;color:var(--muted);margin-bottom:3px}
-.brand .nm{background:var(--gold-text);-webkit-background-clip:text;background-clip:text;color:transparent}
-.brand small{display:block;font-family:var(--f-body);font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:4px}
-.today{font-size:12.5px;color:var(--muted);text-align:right}
-nav.tabs{position:fixed;left:0;right:0;bottom:0;background:var(--surface);border-top:1px solid #D8D0C6;display:flex;justify-content:center;padding-bottom:env(safe-area-inset-bottom,0px);z-index:20}
-nav.tabs .in{display:grid;grid-template-columns:repeat(5,1fr);width:100%;max-width:760px}
-nav.tabs button{background:none;border:0;padding:10px 4px 9px;font:600 12px var(--f-body);color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer;position:relative}
-nav.tabs button svg{width:22px;height:22px}
-nav.tabs button[aria-current="page"]{color:var(--accent)}
-nav.tabs .dot{position:absolute;top:6px;right:calc(50% - 18px);background:var(--accent);color:var(--accent-ink);font:700 10px var(--f-body);border-radius:9px;min-width:17px;height:17px;padding:0 4px;display:flex;align-items:center;justify-content:center}
-h2.sec{font:600 13px var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:20px 0 8px}
-.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
-.grow{flex:1;min-width:0}
-button,.btn{font:600 14px var(--f-body);border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:9px 14px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:6px;line-height:1.2}
-button:focus-visible,.btn:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.btn-primary{background:var(--gold);border-color:#2E2A28;color:var(--accent-ink);text-shadow:0 1px 1px rgba(0,0,0,.25);box-shadow:0 2px 8px rgba(30,25,22,.18)}
-.btn-wa{background:#1F8B4C;border-color:#1F8B4C;color:#fff}
-.btn-ghost{background:transparent;border-color:transparent;color:var(--muted);padding-inline:8px}
-.btn-sm{padding:6px 10px;font-size:13px;border-radius:8px}
-.btn-danger{color:var(--bad);border-color:var(--bad-soft)}
-.icon{width:16px;height:16px;flex:none}
-.datebar{display:flex;align-items:center;gap:8px;margin-bottom:10px}
-.datebar .label{flex:1;min-width:0;font-family:var(--f-display);font-size:15px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;text-align:center;color:var(--accent)}
-.week{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:12px}
-.week button{flex-direction:column;padding:6px 0;gap:0;border-radius:10px;font-size:11px;color:var(--muted);justify-content:center}
-.week button b{font:600 16px var(--f-body);color:var(--ink)}
-.week button i{font-style:normal;font-size:10px;color:var(--accent);min-height:13px}
-.week button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
-.week button[aria-pressed="true"] b,.week button[aria-pressed="true"] i{color:var(--accent-ink)}
-.chips{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px;margin-bottom:12px}
-.chip{font:600 13px var(--f-body);border-radius:999px;padding:6px 12px;border:1px solid var(--line);background:var(--surface);color:var(--ink);white-space:nowrap;cursor:pointer;display:inline-flex;gap:6px;align-items:center}
-.chip[aria-pressed="true"]{background:var(--gold);color:#fff;border-color:#2E2A28}
-.sw{width:10px;height:10px;border-radius:50%;display:inline-block;flex:none}
-.list{display:flex;flex-direction:column;gap:8px}
-.appt.bloq{background:repeating-linear-gradient(135deg,var(--surface) 0 10px,rgba(120,110,100,.07) 10px 20px);border-style:dashed}
-.cal .ev.bloq{background:#e6e0d7;color:#6f675d;border-left-color:#9b948a}
-.achou{display:grid;gap:6px;margin:-4px 0 4px}
-.achou .line{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:8px 10px}
-.aviso{background:#F6EFE6;border:1px solid #D8C9B4;border-radius:10px;padding:8px 10px;font-size:.92em}
-.busca-ag{margin-bottom:12px}
-.hist .line{align-items:flex-start}
-.hist small{display:block}
-.appt{display:grid;grid-template-columns:62px 1fr;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px;border-left:4px solid var(--c,var(--accent))}
-.appt .h{font:500 15px var(--f-num);font-variant-numeric:tabular-nums}
-.appt .h small{display:block;font-size:11px;color:var(--muted)}
-.appt .who{font-weight:700;font-size:16px}
-.appt .what{color:var(--muted);font-size:13.5px}
-.appt .acts{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
-.pill{font:700 11px var(--f-body);letter-spacing:.04em;text-transform:uppercase;border-radius:999px;padding:3px 8px;display:inline-block}
-.st-agendado{background:var(--info-soft);color:var(--info)}
-.st-confirmado{background:var(--accent-soft);color:var(--accent)}
-.st-concluido{background:var(--ok-soft);color:var(--ok)}
-.st-faltou{background:var(--warn-soft);color:var(--warn)}
-.st-cancelado{background:var(--bad-soft);color:var(--bad)}
-.empty{border:1px dashed var(--line);border-radius:var(--r);padding:22px 16px;text-align:center;color:var(--muted)}
-.empty b{display:block;color:var(--ink);font-size:16px;margin-bottom:4px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px}
-.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.kpi{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px;min-width:0}
-.kpi span{display:block;font-size:12px;color:var(--muted);font-weight:600;letter-spacing:.04em;text-transform:uppercase}
-.kpi b{display:block;font:500 18px var(--f-num);font-variant-numeric:tabular-nums;margin-top:4px;overflow-wrap:anywhere}
-.money{font-family:var(--f-num);font-variant-numeric:tabular-nums}
-.pos{color:var(--ok)} .neg{color:var(--bad)}
-.line{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}
-.line:last-child{border-bottom:0}
-.line .grow small{display:block;color:var(--muted);font-size:12.5px}
-.bar{height:8px;border-radius:4px;background:var(--line);overflow:hidden;margin-top:6px}
-.bar i{display:block;height:100%;background:var(--c,var(--accent))}
-input,select,textarea{font:15px var(--f-body);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px;width:100%}
-textarea{min-height:84px;resize:vertical}
-label.f{display:flex;flex-direction:column;gap:5px;font-size:13px;font-weight:600;color:var(--muted)}
-.form{display:grid;gap:12px}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.search{margin-bottom:12px}
-.client{display:flex;gap:12px;align-items:center;padding:12px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);cursor:pointer;width:100%;text-align:left;font:inherit;color:inherit}
-.av{width:40px;height:40px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font:600 15px var(--f-body);display:flex;align-items:center;justify-content:center;flex:none}
-.due{display:grid;gap:4px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px}
-.due.late{border-color:var(--warn)}
-.tag{font-size:12px;color:var(--muted)}
-.modal-bg{position:fixed;inset:0;background:rgba(25,20,18,.42);display:flex;align-items:flex-end;justify-content:center;z-index:50}
-.modal{background:var(--surface);color:var(--ink);width:100%;max-width:560px;max-height:92%;overflow:auto;border-radius:18px 18px 0 0;padding:18px 16px calc(18px + env(safe-area-inset-bottom,0px))}
-@media (min-width:640px){.modal-bg{align-items:center}.modal{border-radius:18px}}
-.modal h3{font-family:var(--f-display);font-weight:500;font-size:16px;letter-spacing:.14em;text-transform:uppercase;margin:0 0 12px;text-wrap:balance;color:var(--accent)}
-.modal .foot{display:flex;gap:8px;justify-content:flex-end;margin-top:16px;flex-wrap:wrap}
-.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(84px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:10px;font-weight:600;z-index:60;max-width:90%;text-align:center}
-.note{font-size:13px;color:var(--muted)}
-.banner{background:var(--warn-soft);color:var(--warn);border-radius:10px;padding:10px 12px;font-size:13.5px;margin-bottom:12px}
-.ph{font:500 12px var(--f-num);color:var(--muted)}
-.svc{display:grid;grid-template-columns:1fr auto;gap:4px 10px;padding:10px 0;border-bottom:1px solid var(--line)}
-.svc:last-child{border:0}
-.wa-num{font:500 12px var(--f-num);color:var(--muted);user-select:all}
-.reserva{position:fixed;left:0;right:0;bottom:calc(64px + env(safe-area-inset-bottom,0px));z-index:30;display:flex;justify-content:center;padding-inline:12px;pointer-events:none}
-.reserva .box{pointer-events:auto;width:100%;max-width:736px;max-height:58vh;overflow:auto;background:var(--surface);border:2px solid #3A3532;border-radius:16px;box-shadow:0 -8px 30px rgba(0,0,0,.25);padding:14px}
-.reserva h3{font-family:var(--f-display);font-weight:500;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0 0 2px}
-.reserva .it{border-top:1px solid var(--line);padding-top:10px;margin-top:10px;display:grid;gap:6px}
-.reserva .nums{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
-.reserva .nums div{background:var(--bg);border-radius:8px;padding:6px 8px;min-width:0}
-.reserva .nums span{display:block;font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
-.reserva .nums b{font:500 15px var(--f-num);font-variant-numeric:tabular-nums}
-.reserva .dep{font-size:15px}
-.reserva .dep b{font:600 18px var(--f-num);color:var(--accent)}
-body.tem-reserva .wrap{padding-bottom:360px}
-/* fora do Claude não vem essa regra pronta: elemento com hidden some de verdade (login, toast, formulários) */
-[hidden]{display:none!important}
-/* logo da Rafaela no topo e faixa de demonstração */
-.logoimg{height:58px;width:auto;display:block}
-.demo{display:flex;align-items:baseline;gap:8px;border-bottom:1px dashed #B9B0A6;padding:0 2px 8px;font-size:12px;color:var(--muted);margin-bottom:12px}
-.demo b{color:var(--ink);font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:11px}
-/* tela de login (fora do Claude, cada uma entra com o próprio e-mail e senha) */
-.login{position:fixed;inset:0;z-index:80;background:var(--bg) radial-gradient(120% 70% at 50% 0%,#FAF7F3 0%,transparent 70%) no-repeat;display:flex;align-items:center;justify-content:center;padding:24px 16px;overflow:auto}
-.lgbox{width:100%;max-width:360px;display:grid;gap:12px;text-align:center}
-.lgmono{width:72px;height:72px;margin:0 auto 4px}
-.lgmono b{font-size:30px}
-.lgpre{font:500 12px var(--f-display);letter-spacing:.5em;color:var(--muted)}
-.lgnome{font:600 30px var(--f-display);letter-spacing:.06em;margin:0;background:var(--gold-text);-webkit-background-clip:text;background-clip:text;color:transparent}
-.lgcid{font:500 11px var(--f-display);letter-spacing:.4em;color:var(--muted);margin-bottom:10px}
-.lgcid::before,.lgcid::after{content:"";display:inline-block;width:28px;height:1px;background:#9C938A;vertical-align:middle;margin:0 10px}
-.lgbox label.f{text-align:left}
-body.sem-login nav.tabs,body.sem-login #reservaRoot{display:none}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:clip}
+body{overflow-x:clip}
+body{font-family:var(--sans);font-weight:400;color:var(--ink);background:var(--cream);font-size:15.5px;line-height:1.7;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-inline:22px}
+.eyebrow{font-size:11px;font-weight:500;letter-spacing:.42em;text-transform:uppercase;color:var(--mute)}
+.spark{display:inline-block;width:9px;height:9px;background:currentColor;clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%);vertical-align:middle}
+/* título no estilo do post dela: caixa-alta fina + palavra cursiva grande */
+.tt{text-align:center;margin-bottom:42px}
+.tt .up{display:block;font-weight:300;font-size:clamp(15px,2.4vw,19px);letter-spacing:.34em;text-transform:uppercase}
+.tt .sc{display:block;font-family:var(--script);font-weight:400;font-size:clamp(58px,10vw,96px);line-height:.95;margin-top:2px}
+.tt .sub{display:block;font-size:11.5px;font-weight:500;letter-spacing:.36em;text-transform:uppercase;color:var(--mute);margin-top:10px}
+.tt .orn{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:16px;color:var(--ink)}
+.tt .orn::before,.tt .orn::after{content:"";width:60px;height:1px;background:currentColor;opacity:.35}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:500 12.5px var(--sans);letter-spacing:.24em;text-transform:uppercase;text-decoration:none;padding:17px 28px;border-radius:999px;border:1px solid currentColor;cursor:pointer;transition:background .25s,color .25s,transform .25s}
+.btn:hover{transform:translateY(-1px)}
+.btn-light{background:var(--cream);color:var(--ink);border-color:var(--cream)}
+.btn-light:hover{background:#fff}
+.btn-ghost{background:transparent;color:var(--cream)}
+.btn-ghost:hover{background:rgba(255,255,255,.1)}
+.btn-dark{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.btn-dark:hover{background:#000}
+.btn svg{width:18px;height:18px}
+:focus-visible{outline:2px solid var(--rose);outline-offset:3px}
 
-/* calendário do mês: cada dia mostra os horários em miniatura, como no app Calendário do iPhone */
-.cal{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin-bottom:14px;box-shadow:0 1px 0 #fff inset,0 6px 18px rgba(40,30,25,.06)}
-.cal .dw{font:600 10.5px var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:center;padding:7px 0 6px;border-bottom:1px solid var(--line);background:linear-gradient(#F8F5F1,#EFEAE3)}
-.cal .cell{all:unset;box-sizing:border-box;min-height:84px;min-width:0;padding:3px 2px 4px;border-top:1px solid var(--line);border-left:1px solid var(--line);display:flex;flex-direction:column;gap:2px;cursor:pointer;overflow:hidden}
-.cal .cell:nth-child(7n+1){border-left:0}
-.cal .cell:nth-child(-n+14){border-top:0}
-.cal .cell:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
-.cal .n{align-self:center;font:600 12.5px var(--f-body);width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--ink);font-variant-numeric:tabular-nums;flex:none}
-.cal .cell.fora .n{color:#B9B0A6}
-.cal .cell.fora .ev{opacity:.45}
-.cal .cell.hoje .n{background:var(--gold);color:#fff}
-.cal .cell.sel{background:var(--accent-soft)}
-.cal .cell.sel:not(.hoje) .n{border:1.5px solid #3A3532}
-.cal .ev{display:block;font:600 9.5px/1.25 var(--f-body);white-space:nowrap;overflow:hidden;text-overflow:clip;border-radius:3px;padding:1px 2px 1px 3px;border-left:2px solid var(--c,var(--accent));background:color-mix(in srgb,var(--c,#B0843A) 15%,transparent);color:var(--ink)}
-.cal .ev.ok{opacity:.55}
-.cal .ev.conf{font-weight:700}
-.cal .ev s{text-decoration:none;color:var(--muted);font-weight:500;display:none}
-.cal .more{font:600 9.5px var(--f-body);color:var(--accent);text-align:center}
-@media (min-width:560px){.cal .cell{min-height:104px;padding:4px}.cal .ev{font-size:11px}.cal .ev s{display:inline}.cal .more{font-size:11px}}
-.dayhead{display:flex;align-items:baseline;gap:8px;margin:4px 0 10px}
-.dayhead h2{font:500 14px var(--f-display);letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin:0;flex:1;min-width:0}
-/* mensagens do dia: confirmar 24h–12h antes */
-.msgbox{background:var(--surface);border:1.5px solid #CFC6BB;border-radius:var(--r);padding:10px 12px;margin-bottom:12px}
-.msgbox summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:8px;font:600 14px var(--f-display);letter-spacing:.02em;color:var(--accent)}
-.msgbox summary::-webkit-details-marker{display:none}
-.msgbox summary .cnt{background:var(--gold);color:#fff;font:700 12px var(--f-body);border-radius:999px;min-width:22px;height:22px;padding:0 6px;display:inline-flex;align-items:center;justify-content:center}
-.msgbox summary .urg{font:600 12px var(--f-body)}
-.msgbox summary::after{content:"›";margin-left:auto;font:400 22px var(--f-body);transition:transform .15s;color:var(--muted)}
-.msgbox[open] summary::after{transform:rotate(90deg)}
-.msgbox[open] summary{margin-bottom:6px}
-.msgbox .it{border-top:1px solid var(--line);padding-top:10px;margin-top:10px;display:grid;gap:6px}
-.urg{color:var(--bad);font-weight:700}
-@media (max-width:420px){.kpis{grid-template-columns:1fr 1fr}.kpis .kpi:last-child{grid-column:1/-1}.two{grid-template-columns:1fr}}
-@media (prefers-reduced-motion:no-preference){.modal{animation:up .18s ease-out}@keyframes up{from{transform:translateY(16px);opacity:.6}to{transform:none;opacity:1}}}
+/* topo */
+.nav{position:fixed;inset:0 0 auto;z-index:40;transition:background .35s,box-shadow .35s;padding-top:env(safe-area-inset-top,0)}
+.nav .in{display:flex;align-items:center;justify-content:space-between;height:68px}
+.nav .lg{height:40px;transition:opacity .3s}
+.nav .lg-dark{display:none}
+.nav ul{display:flex;gap:30px;list-style:none;padding:0}
+.nav ul a{font-size:11px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;text-decoration:none;color:var(--cream)}
+.nav .cta{padding:11px 20px;font-size:11px}
+.nav.solid{background:rgba(243,238,232,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line)}
+.nav.solid .lg-light{display:none}.nav.solid .lg-dark{display:block}
+.nav.solid ul a{color:var(--ink)}
+.nav.solid .cta{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+@media (max-width:860px){.nav ul{display:none}}
+
+/* abertura */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;color:var(--cream);overflow:hidden;background:var(--dark)}
+.hero .ph{position:absolute;inset:0;background:url(img/hero.jpg) 50% 47%/cover no-repeat;transform:scale(1.06);animation:zoom 14s ease-out forwards}
+@keyframes zoom{to{transform:scale(1)}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,16,14,.55) 0%,rgba(20,16,14,.05) 30%,rgba(20,16,14,.15) 52%,rgba(20,16,14,.88) 82%,rgba(20,16,14,.96) 100%)}
+.hero .in{position:relative;z-index:2;width:100%;padding-bottom:max(56px,env(safe-area-inset-bottom));text-align:center}
+.hero .logo{width:min(400px,82vw);margin:0 auto 20px;filter:drop-shadow(0 2px 14px rgba(0,0,0,.35))}
+.hero h1{font-weight:300;font-size:clamp(16px,2.6vw,21px);letter-spacing:.2em;text-transform:uppercase;line-height:1.6;max-width:640px;margin:0 auto}
+.hero h1 em{font-style:normal;font-weight:500}
+.hero .loc{margin-top:12px;font-size:11.5px;letter-spacing:.4em;text-transform:uppercase;opacity:.8}
+.hero .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+@media (max-width:899px){
+  .hero{flex-direction:column;justify-content:flex-end}
+  .hero .ph{inset:0 0 34% 0;background-size:165% auto;background-position:50% 58%}
+  .hero::after{background:linear-gradient(180deg,rgba(20,16,14,.45) 0%,rgba(20,16,14,0) 18%,rgba(20,16,14,0) 44%,rgba(20,16,14,.75) 60%,#1E1A18 67%,#1E1A18 100%)}
+  .hero .logo{width:min(300px,76vw);margin-bottom:16px}
+  .hero h1{font-size:15px;letter-spacing:.16em}
+  .hero .loc{font-size:10.5px;letter-spacing:.3em}
+  .hero .loc .dot{display:none}.hero .loc .cid{display:block;margin-top:2px}
+  .hero .btns{flex-direction:column;align-items:center;gap:10px;margin-top:24px}
+  .hero .btns .btn{width:min(300px,100%);padding:15px 20px}
+}
+@media (min-width:900px){
+  .hero{align-items:center}
+  .hero .ph{background-size:cover;background-position:50% 47%}
+  .hero::after{background:linear-gradient(90deg,rgba(20,16,14,.2) 0%,rgba(20,16,14,.15) 38%,rgba(20,16,14,.82) 64%,rgba(20,16,14,.94) 100%)}
+  .hero .in{display:flex;justify-content:flex-end;padding-bottom:0}
+  .hero .box{width:520px;text-align:center}
+}
+
+/* faixa das técnicas */
+.ribbon{background:var(--ink);color:var(--cream);overflow:hidden;white-space:nowrap;padding:17px 0;border-block:1px solid #000}
+.ribbon .tr{display:inline-flex;gap:34px;animation:mq 32s linear infinite;padding-left:34px}
+.ribbon span{font-size:12px;font-weight:400;letter-spacing:.38em;text-transform:uppercase;display:inline-flex;align-items:center;gap:34px}
+.ribbon i{font-family:var(--script);font-style:normal;font-size:30px;letter-spacing:0;text-transform:none;line-height:0}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* sobre */
+.about{padding:110px 0 100px;background:var(--cream)}
+.about .grid{display:grid;gap:48px;align-items:center}
+@media (min-width:900px){.about .grid{grid-template-columns:1fr 1.05fr;gap:80px}}
+.about .pic{position:relative}
+.about .pic img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:40% 50%;border-radius:220px 220px 6px 6px}
+.about .pic::before{content:"";position:absolute;inset:-14px 14px 14px -14px;border:1px solid var(--ink);opacity:.25;border-radius:230px 230px 8px 8px;z-index:-0;pointer-events:none}
+.about .pic .tag{position:absolute;right:-6px;bottom:28px;background:var(--paper);padding:14px 20px;box-shadow:0 14px 30px rgba(30,20,15,.12);text-align:center}
+.about .pic .tag b{display:block;font-family:var(--script);font-weight:400;font-size:40px;line-height:1}
+.about .pic .tag span{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--soft)}
+.about .txt .tt{text-align:left;margin-bottom:26px}
+.about .txt .tt .orn{justify-content:flex-start}
+.about .txt .tt .orn::before{display:none}
+.about blockquote{font-size:17px;line-height:1.85;color:var(--soft);font-weight:300}
+.about blockquote strong{color:var(--ink);font-weight:500}
+.about .sign{font-family:var(--script);font-size:42px;margin-top:18px;line-height:1}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:34px}
+.facts div{background:var(--cream);padding:16px 10px;text-align:center}
+.facts b{display:block;font-weight:500;font-size:13px;letter-spacing:.06em}
+.facts span{display:block;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin-top:4px;line-height:1.5}
+
+/* técnicas */
+.tec{padding:110px 0;background:var(--paper)}
+.cards{display:grid;gap:18px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.card{position:relative;background:var(--cream);border:1px solid var(--line);display:flex;flex-direction:column;overflow:hidden;transition:transform .35s,box-shadow .35s}
+.card:hover{transform:translateY(-4px);box-shadow:0 22px 40px rgba(30,20,15,.10)}
+.card .im{aspect-ratio:4/5;overflow:hidden;background:var(--dark)}
+.card .im img{width:100%;height:100%;object-fit:cover;transition:transform .8s}
+.card:hover .im img{transform:scale(1.05)}
+.card .im.typo{display:flex;align-items:center;justify-content:center;flex-direction:column;background:radial-gradient(120% 90% at 50% 0%,#3A322D 0%,var(--dark) 70%);color:var(--cream);gap:6px}
+.card .im.typo .big{font-family:var(--script);font-size:78px;line-height:1}
+.card .im.typo .mini{font-size:10.5px;letter-spacing:.42em;text-transform:uppercase;opacity:.7}
+.card .bd{padding:22px 22px 24px;display:flex;flex-direction:column;gap:10px;flex:1}
+.card .n{font-size:10.5px;letter-spacing:.3em;color:var(--mute)}
+.card h3{font-weight:500;font-size:15px;letter-spacing:.24em;text-transform:uppercase}
+.card p{font-size:14px;color:var(--soft);line-height:1.65;flex:1}
+.card a{align-self:flex-start;font-size:11px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:3px}
+.card.star{border-color:var(--ink)}
+.card .badge{position:absolute;top:14px;left:14px;z-index:2;background:var(--cream);font-size:10px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;padding:7px 12px;border-radius:999px}
+.tec .note{text-align:center;margin-top:34px;font-size:13px;color:var(--mute);letter-spacing:.04em}
+
+/* resultados */
+.res{padding:110px 0;background:var(--dark);color:var(--cream)}
+.res .tt .sub{color:#B6ABA2}
+.res .tt .orn{color:var(--cream)}
+.gal{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media (min-width:900px){.gal{grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;gap:14px}.gal .g:nth-child(1){grid-row:span 2;grid-column:span 2}.gal .g:nth-child(4){grid-row:span 2}.gal .g:nth-child(5){grid-row:span 2}}
+.g{position:relative;overflow:hidden;cursor:zoom-in;background:#111;border:0;padding:0;aspect-ratio:3/4}
+@media (min-width:900px){.g{aspect-ratio:auto}}
+.g img{width:100%;height:100%;object-fit:cover;transition:transform .8s,opacity .4s;opacity:.94}
+.g:hover img{transform:scale(1.05);opacity:1}
+.g figcaption{position:absolute;left:0;right:0;bottom:0;padding:34px 14px 12px;background:linear-gradient(transparent,rgba(0,0,0,.7));font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;text-align:left;color:#fff}
+.res .more{display:flex;justify-content:center;margin-top:40px}
+.lb{position:fixed;inset:0;z-index:90;background:rgba(10,8,7,.94);display:flex;align-items:center;justify-content:center;padding:20px}
+.lb img{max-height:88vh;max-width:100%;object-fit:contain}
+.lb button{position:absolute;top:16px;right:16px;background:none;border:1px solid rgba(255,255,255,.4);color:#fff;width:44px;height:44px;border-radius:50%;font-size:20px;cursor:pointer}
+[hidden]{display:none!important}
+
+/* cuidados */
+.care{padding:110px 0;background:var(--cream)}
+.steps{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);grid-template-columns:1fr}
+@media (min-width:700px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1000px){.steps{grid-template-columns:repeat(3,1fr)}}
+.step{background:var(--cream);padding:30px 26px;display:grid;gap:10px}
+.step .ic{width:54px;height:54px;border-radius:50%;background:var(--cream2);display:flex;align-items:center;justify-content:center}
+.step .ic svg{width:26px;height:26px;stroke:var(--ink);fill:none;stroke-width:1.2}
+.step .hd{display:flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.24em;text-transform:uppercase;font-weight:500}
+.step .hd small{font-size:11px;color:var(--mute);letter-spacing:.1em}
+.step p{font-size:14px;color:var(--soft);line-height:1.65}
+.care .end{text-align:center;font-family:var(--script);font-size:clamp(34px,5vw,48px);margin-top:46px}
+
+/* agendar */
+.book{position:relative;padding:110px 0;background:var(--dark);color:var(--cream);overflow:hidden}
+.book::before{content:"";position:absolute;inset:0;background:url(img/capping.jpg) center/cover;opacity:.13;filter:grayscale(1)}
+.book .wrap{position:relative}
+.book .tt .orn{color:var(--cream)}
+.book .tt .sub{color:#B6ABA2}
+.form{max-width:640px;margin:0 auto;background:rgba(243,238,232,.06);border:1px solid rgba(243,238,232,.18);padding:34px 26px;backdrop-filter:blur(4px);display:grid;gap:20px}
+.f{display:grid;gap:8px}
+.f>span,.f legend{font-size:10.5px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:#C9BEB4}
+.f input,.f select,.f textarea{font:400 15.5px var(--sans);color:var(--cream);background:transparent;border:0;border-bottom:1px solid rgba(243,238,232,.35);padding:10px 2px;border-radius:0;width:100%;-webkit-appearance:none;appearance:none}
+.f select{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%23F3EEE8'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E") right 4px center no-repeat}
+.f select option{color:var(--ink)}
+.f textarea{min-height:70px;resize:vertical}
+.f input::placeholder,.f textarea::placeholder{color:#9A8F86}
+.f input:focus,.f select:focus,.f textarea:focus{outline:0;border-bottom-color:var(--cream)}
+.f input[type=date]{color-scheme:dark}
+fieldset.f{border:0;padding:0}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opts label{position:relative}
+.opts input{position:absolute;opacity:0;pointer-events:none}
+.opts span{display:inline-block;padding:10px 16px;border:1px solid rgba(243,238,232,.3);border-radius:999px;font-size:12px;letter-spacing:.12em;cursor:pointer;transition:all .2s}
+.opts input:checked+span{background:var(--cream);color:var(--ink);border-color:var(--cream)}
+.opts input:focus-visible+span{outline:2px solid var(--rose);outline-offset:2px}
+.two{display:grid;gap:20px}
+@media (min-width:560px){.two{grid-template-columns:1fr 1fr}}
+.form .btn{width:100%;margin-top:6px}
+.form .alt{text-align:center;font-size:12.5px;color:#B6ABA2}
+.form .alt a{color:var(--cream)}
+.err{font-size:12.5px;color:#F0B9A8;min-height:1em}
+
+/* rodapé */
+footer{background:#141110;color:#B6ABA2;padding:64px 0 40px;text-align:center;font-size:13px}
+footer img{width:220px;margin:0 auto 22px}
+footer .ln{display:flex;gap:26px;justify-content:center;flex-wrap:wrap;margin:18px 0 30px}
+footer .ln a{font-size:11px;letter-spacing:.3em;text-transform:uppercase;text-decoration:none;color:var(--cream)}
+footer .pro{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#6F665F;text-decoration:none}
+footer .pro:hover{color:var(--cream)}
+
+/* botão flutuante */
+.fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:50;width:58px;height:58px;border-radius:50%;background:#1F8B4C;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(0,0,0,.28);transition:transform .3s,opacity .3s;text-decoration:none}
+.fab svg{width:28px;height:28px}
+.fab.off{opacity:0;transform:scale(.6);pointer-events:none}
+
+/* entrada suave das seções */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s ease}
+.rv.on{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.hero .ph{animation:none;transform:none}.ribbon .tr{animation:none}html{scroll-behavior:auto}}
+@media (max-width:600px){
+  .cards{grid-template-columns:1fr 1fr;gap:10px}
+  .card .im{aspect-ratio:3/4}
+  .card .bd{padding:14px 13px 16px;gap:7px}
+  .card h3{font-size:11.5px;letter-spacing:.14em}
+  .card p{font-size:12.5px;line-height:1.55}
+  .card a{font-size:10px;letter-spacing:.18em}
+  .card .im.typo .big{font-size:44px}
+  .card .im.typo .mini{font-size:9px}
+  .about .grid>*{min-width:0}
+  .facts b{font-size:12px}.facts span{font-size:9px;letter-spacing:.14em}
+  .about .pic .tag{right:8px}
+  .tec,.res,.care,.book,.about{padding:80px 0}
+}
+.about .grid>*{min-width:0}
 </style>
 </head>
 <body>
 
-<div class="wrap">
-  <header class="top">
-    <div class="logo"><img class="logoimg" src="logo.png" alt="Rafaela Moura · Lash Designer"><b id="mono" hidden></b><div id="brand" hidden></div></div>
-    <div class="today" id="todayLbl"></div>
-  </header>
-  <div id="banner"></div>
-  <main id="view"><div class="empty"><b>Carregando a agenda…</b>Os agendamentos, clientes e o caixa aparecem aqui em instantes.</div></main>
-</div>
+<header class="nav" id="nav"><div class="wrap in">
+  <a href="#topo" aria-label="Rafaela Moura · início"><img class="lg lg-light" src="img/logo-creme.png" alt="Rafaela Moura · Lash Designer"><img class="lg lg-dark" src="img/logo.png" alt=""></a>
+  <ul>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#tecnicas">Técnicas</a></li>
+    <li><a href="#resultados">Resultados</a></li>
+    <li><a href="#cuidados">Cuidados</a></li>
+  </ul>
+  <a class="btn btn-ghost cta" href="#agendar">Agendar</a>
+</div></header>
 
-<nav class="tabs" aria-label="Seções"><div class="in">
-  <button data-tab="agenda"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Agenda</button>
-  <button data-tab="clientes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>Clientes</button>
-  <button data-tab="retornos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12a8 8 0 1 0 3-6.2"/><path d="M4 4v4h4"/><path d="M12 8v4l3 2"/></svg>Retornos<span class="dot" id="dueDot" hidden></span></button>
-  <button data-tab="caixa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h4"/></svg>Caixa</button>
-  <button data-tab="ajustes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>Ajustes</button>
-</div></nav>
-<div id="reservaRoot"></div>
-<div id="modalRoot"></div>
-<div id="login" class="login" hidden>
-  <form id="lgForm" class="lgbox" autocomplete="on">
-    <img src="logo.png" alt="Rafaela Moura · Lash Designer" style="width:240px;margin:0 auto">
-    <div class="lgcid">ARCOS-MG</div>
-    <label class="f">E-mail<input id="lgEmail" type="email" autocomplete="username" inputmode="email" required></label>
-    <label class="f">Senha<input id="lgSenha" type="password" autocomplete="current-password" required></label>
-    <button class="btn-primary" id="lgBtn" style="justify-content:center">Entrar</button>
-    <button type="button" class="btn-ghost" id="lgEsqueci" style="justify-content:center">Esqueci a senha</button>
-    <p class="note" id="lgMsg" role="status" style="text-align:center;margin:0"></p>
+<main id="topo">
+<section class="hero">
+  <div class="ph" role="img" aria-label="Olhar com extensão de cílios feita pela Rafaela"></div>
+  <div class="wrap in"><div class="box">
+    <img class="logo" src="img/logo-creme.png" alt="Rafaela Moura · Lash Designer">
+    <h1>Extensão de cílios com <em>técnica</em> e <em>naturalidade</em></h1>
+    <p class="loc">Atendimento personalizado <span class="dot">·</span> <span class="cid">Arcos-MG</span></p>
+    <div class="btns">
+      <a class="btn btn-light" href="#agendar">Agendar meu horário</a>
+      <a class="btn btn-ghost" href="#resultados">Ver resultados</a>
+    </div>
+  </div></div>
+</section>
+
+<div class="ribbon" aria-hidden="true"><div class="tr">
+  <span>Fio a fio <i>✦</i> Volume brasileiro <i>✦</i> Volume egípcio <i>✦</i> Volume 5D <i>✦</i> Fox eyes <i>✦</i> Mega fox eyes <i>✦</i> Capping <i>✦</i></span>
+  <span>Fio a fio <i>✦</i> Volume brasileiro <i>✦</i> Volume egípcio <i>✦</i> Volume 5D <i>✦</i> Fox eyes <i>✦</i> Mega fox eyes <i>✦</i> Capping <i>✦</i></span>
+</div></div>
+
+<section class="about" id="sobre"><div class="wrap grid">
+  <div class="pic rv">
+    <img src="img/atendimento.jpg" alt="Extensão de cílios sendo aplicada fio a fio" loading="lazy">
+    <div class="tag"><b>cada fio</b><span>é valorizado</span></div>
+  </div>
+  <div class="txt rv">
+    <div class="tt"><span class="eyebrow">Prazer, Rafaela</span><span class="sc">o detalhe</span><span class="up">faz a diferença</span><span class="orn"><i class="spark"></i></span></div>
+    <blockquote>
+      Por trás de cada olhar deslumbrante, há um trabalho feito com <strong>carinho, precisão e muita técnica</strong>.
+      Acredito que a beleza está nos detalhes, e meu objetivo é realçar a sua de forma <strong>natural e elegante</strong>.
+      Aqui, cada fio é valorizado, e cada cliente é única.
+    </blockquote>
+    <p class="sign">Rafaela Moura</p>
+    <div class="facts">
+      <div><b>Desde 2025</b><span>transformando olhares</span></div>
+      <div><b>Classic Lashes</b><span>formação em extensão</span></div>
+      <div><b>Personalizado</b><span>cada cliente é única</span></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="tec" id="tecnicas"><div class="wrap">
+  <div class="tt rv"><span class="up">Escolha o seu</span><span class="sc">Olhar</span><span class="sub">Técnicas de extensão</span><span class="orn"><i class="spark"></i></span></div>
+  <div class="cards">
+    <article class="card rv star"><div class="im"><img src="img/megafox.jpg" alt="Mega fox eyes" loading="lazy"></div><div class="bd"><span class="n">01</span><h3>Mega fox eyes</h3><p>A versão mais intensa do fox eyes: canto externo bem alongado, efeito delineado e olhar marcante.</p><a href="#agendar" data-tec="Mega fox eyes">Quero esse</a></div></article>
+    <article class="card rv"><div class="im"><img src="img/fox.jpg" alt="Fox eyes" loading="lazy" style="object-position:50% 30%"></div><div class="bd"><span class="n">02</span><h3>Fox eyes</h3><p>Alonga o canto externo e puxa o olhar pra cima. Pode ser delicado ou marcante, do jeito que você quiser.</p><a href="#agendar" data-tec="Fox eyes">Quero esse</a></div></article>
+    <article class="card rv"><div class="im"><img src="img/capping-glamour.jpg" alt="Capping glamour" loading="lazy"></div><div class="bd"><span class="n">03</span><h3>Capping</h3><p>Uma selagem dupla nos fios: mais retenção, mais resistência no dia a dia e aquele efeito volumoso por muito mais tempo.</p><a href="#agendar" data-tec="Capping">Quero esse</a></div></article>
+    <article class="card rv"><div class="im"><img src="img/fioafio.jpg" alt="Fio a fio" loading="lazy" style="object-position:50% 40%"></div><div class="bd"><span class="n">04</span><h3>Fio a fio clássico</h3><p>Um fio aplicado em cada cílio natural. Realça sem pesar, pra quem quer naturalidade no dia a dia.</p><a href="#agendar" data-tec="Fio a fio clássico">Quero esse</a></div></article>
+    <article class="card rv"><div class="im typo"><span class="big">Brasileiro</span><span class="mini">Volume</span></div><div class="bd"><span class="n">05</span><h3>Volume brasileiro</h3><p>Fios em formato de Y que deixam o olhar mais cheio, com acabamento leve e marcado.</p><a href="#agendar" data-tec="Volume brasileiro">Quero esse</a></div></article>
+    <article class="card rv"><div class="im typo"><span class="big">Egípcio</span><span class="mini">Volume</span></div><div class="bd"><span class="n">06</span><h3>Volume egípcio</h3><p>Fios em formato de W, com mais volume e preenchimento. Olhar intenso do começo ao fim.</p><a href="#agendar" data-tec="Volume egípcio">Quero esse</a></div></article>
+    <article class="card rv"><div class="im typo"><span class="big">5D</span><span class="mini">Volume</span></div><div class="bd"><span class="n">07</span><h3>Volume 5D</h3><p>Leques de cinco pontas pra um volume cheio e uniforme, com efeito de cílios de boneca.</p><a href="#agendar" data-tec="Volume 5D">Quero esse</a></div></article>
+    <article class="card rv"><div class="im typo"><span class="big">Buço</span><span class="mini">Epilação</span></div><div class="bd"><span class="n">08</span><h3>Epilação de buço</h3><p>Pra completar o cuidado com o rosto no mesmo horário.</p><a href="#agendar" data-tec="Epilação de buço">Quero esse</a></div></article>
+  </div>
+  <p class="note rv">Valores e manutenção: é só pedir no agendamento que a Rafaela te passa.</p>
+</div></section>
+
+<section class="res" id="resultados"><div class="wrap">
+  <div class="tt rv"><span class="up">Olhares que</span><span class="sc">falam</span><span class="sub">Resultados reais de clientes</span><span class="orn"><i class="spark"></i></span></div>
+  <div class="gal rv">
+    <figure class="g" tabindex="0"><img src="img/megafox2.jpg" alt="Mega fox eyes" loading="lazy"><figcaption>Mega fox eyes</figcaption></figure>
+    <figure class="g" tabindex="0"><img src="img/hero.jpg" alt="Fox eyes" loading="lazy" style="object-position:50% 47%"><figcaption>Fox eyes</figcaption></figure>
+    <figure class="g" tabindex="0"><img src="img/capping.jpg" alt="Capping" loading="lazy" style="object-position:50% 30%"><figcaption>Capping</figcaption></figure>
+    <figure class="g" tabindex="0"><img src="img/capping-glamour.jpg" alt="Capping glamour" loading="lazy"><figcaption>Capping glamour</figcaption></figure>
+    <figure class="g" tabindex="0"><img src="img/megafox.jpg" alt="Mega fox eyes" loading="lazy"><figcaption>Mega fox eyes</figcaption></figure>
+    <figure class="g" tabindex="0"><img src="img/fox.jpg" alt="Fox eyes" loading="lazy" style="object-position:50% 30%"><figcaption>Fox eyes</figcaption></figure>
+  </div>
+  <div class="more rv"><a class="btn btn-ghost" href="https://www.instagram.com/cilios.rafaelamoura/" target="_blank" rel="noopener">Mais no Instagram</a></div>
+</div></section>
+
+<section class="care" id="cuidados"><div class="wrap">
+  <div class="tt rv"><span class="up">Como cuidar dos seus</span><span class="sc">Cílios</span><span class="sub">Após a extensão</span><span class="orn"><i class="spark"></i></span></div>
+  <div class="steps rv">
+    <div class="step"><div class="hd"><span class="ic"><svg viewBox="0 0 24 24"><path d="M9 3h6M10 3v3h4V3M8 8h8l1 3v9a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1v-9z"/><path d="M12 13.5c-1 1.3-1.5 2-1.5 2.6a1.5 1.5 0 0 0 3 0c0-.6-.5-1.3-1.5-2.6z"/></svg></span><span><small>01</small><br>Mantenha os cílios limpos</span></div><p>Use um shampoo específico para extensões, fazendo a higienização diária e suave na região dos olhos.</p></div>
+    <div class="step"><div class="hd"><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 12c3-3.5 6-5 9-5s6 1.5 9 5"/><path d="M5 13l-1 2M8 14.5l-.5 2.2M12 15v2.3M16 14.5l.5 2.2M19 13l1 2"/></svg></span><span><small>02</small><br>Seque com delicadeza</span></div><p>Evite esfregar os olhos. Seque suavemente com uma toalha limpa ou use um secador no modo frio.</p></div>
+    <div class="step"><div class="hd"><span class="ic"><svg viewBox="0 0 24 24"><rect x="5" y="7" width="6" height="14" rx="1"/><path d="M6 7V4h4v3"/><circle cx="17" cy="15" r="4"/><path d="M14.2 17.8l5.6-5.6"/></svg></span><span><small>03</small><br>Cuidado com os produtos</span></div><p>Evite produtos oleosos, como demaquilantes à base de óleo, cremes e séruns na região dos olhos.</p></div>
+    <div class="step"><div class="hd"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 20L16 8"/><path d="M14 6l4 4M15 5l1 1M17 4l1 1M18 6l1 1M19 8l1 1M16 9l1 1"/></svg></span><span><small>04</small><br>Não puxe nem esfregue</span></div><p>Evite arrancar as extensões ou tentar removê-las em casa. Isso pode danificar seus fios naturais e comprometer o resultado.</p></div>
+    <div class="step"><div class="hd"><span class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="1.5"/><path d="M4 9h16M8 3v4M16 3v4"/><path d="M12 17.5s-3-1.8-3-3.6a1.5 1.5 0 0 1 3-.4 1.5 1.5 0 0 1 3 .4c0 1.8-3 3.6-3 3.6z"/></svg></span><span><small>05</small><br>Manutenção no prazo</span></div><p>A manutenção é essencial para manter o efeito bonito e prolongar a durabilidade do seu olhar.</p></div>
+    <div class="step"><div class="hd"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l1.6 4.4L18 9l-4.4 1.6L12 15l-1.6-4.4L6 9l4.4-1.6z"/><path d="M18 14l.8 2.2L21 17l-2.2.8L18 20l-.8-2.2L15 17l2.2-.8z"/></svg></span><span><small>06</small><br>Aproveite seu olhar</span></div><p>Com os cuidados certos, seus cílios permanecem bonitos, leves e realçam ainda mais a sua beleza natural.</p></div>
+  </div>
+  <p class="end rv">Seu olhar merece esse cuidado!</p>
+</div></section>
+
+<section class="book" id="agendar"><div class="wrap">
+  <div class="tt rv"><span class="up">Reserve o seu</span><span class="sc">horário</span><span class="sub">Responda e a mensagem vai pronta pro WhatsApp</span><span class="orn"><i class="spark"></i></span></div>
+  <form class="form rv" id="fm" novalidate>
+    <label class="f"><span>Seu nome</span><input id="nome" autocomplete="given-name" placeholder="Como você gosta de ser chamada" required></label>
+    <label class="f"><span>Técnica</span><select id="tec">
+      <option value="">Ainda não sei, me ajuda a escolher</option>
+      <option>Mega fox eyes</option><option>Fox eyes</option><option>Capping</option><option>Fio a fio clássico</option>
+      <option>Volume brasileiro</option><option>Volume egípcio</option><option>Volume 5D</option><option>Epilação de buço</option>
+    </select></label>
+    <fieldset class="f"><legend>É</legend><div class="opts">
+      <label><input type="radio" name="tipo" value="primeira aplicação" checked><span>Primeira aplicação</span></label>
+      <label><input type="radio" name="tipo" value="manutenção"><span>Manutenção</span></label>
+      <label><input type="radio" name="tipo" value="remoção"><span>Remoção</span></label>
+    </div></fieldset>
+    <div class="two">
+      <label class="f"><span>Dia que prefere</span><input type="date" id="dia"></label>
+      <fieldset class="f"><legend>Período</legend><div class="opts">
+        <label><input type="radio" name="per" value="manhã"><span>Manhã</span></label>
+        <label><input type="radio" name="per" value="tarde"><span>Tarde</span></label>
+        <label><input type="radio" name="per" value="qualquer horário" checked><span>Tanto faz</span></label>
+      </div></fieldset>
+    </div>
+    <label class="f"><span>Quer contar algo? (opcional)</span><textarea id="obs" placeholder="Ex.: é minha primeira vez, tenho os olhos sensíveis…"></textarea></label>
+    <p class="err" id="err" role="status"></p>
+    <button class="btn btn-light" type="submit"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.1 5.1 0 0 0 1.1 2.7 11.6 11.6 0 0 0 4.4 3.9c1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2l-.8-.2z"/></svg>Enviar pelo WhatsApp</button>
+    <p class="alt">Prefere o Instagram? <a href="https://ig.me/m/cilios.rafaelamoura" target="_blank" rel="noopener">Chamar no direct</a></p>
   </form>
-</div>
+</div></section>
+</main>
 
+<footer><div class="wrap">
+  <img src="img/logo-creme.png" alt="Rafaela Moura · Lash Designer" loading="lazy">
+  <p>Extensão de cílios com técnica e naturalidade · Arcos-MG</p>
+  <div class="ln">
+    <a href="https://www.instagram.com/cilios.rafaelamoura/" target="_blank" rel="noopener">Instagram</a>
+    <a href="#agendar">Agendar</a>
+    <a href="#cuidados">Cuidados</a>
+  </div>
+  <a class="pro" href="agenda/">Área da profissional</a>
+</div></footer>
+
+<a class="fab off" id="fab" href="#agendar" aria-label="Agendar horário"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.1 5.1 0 0 0 1.1 2.7 11.6 11.6 0 0 0 4.4 3.9c1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2l-.8-.2z"/></svg></a>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Foto ampliada"><img alt=""><button type="button" aria-label="Fechar">✕</button></div>
 
 <script>
-(function(){
-"use strict";
-/* ---------- utilidades ---------- */
+/* número do WhatsApp da Rafaela (só dígitos, com 55 + DDD). Vazio = o WhatsApp abre pra escolher o contato. */
+const ZAP = "";
 const $ = s => document.querySelector(s);
-const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-const pad = n => String(n).padStart(2,"0");
-const ymd = d => d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate());
-const parseYmd = s => { const [y,m,d] = s.split("-").map(Number); return new Date(y, m-1, d); };
-const addDays = (s, n) => { const d = parseYmd(s); d.setDate(d.getDate()+n); return ymd(d); };
-const today = () => ymd(new Date());
-const DOW = ["dom","seg","ter","qua","qui","sex","sáb"];
-const MES = ["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"];
-const fmtDia = s => { const d = parseYmd(s); return DOW[d.getDay()]+", "+d.getDate()+" de "+MES[d.getMonth()]; };
-const fmtCurto = s => { const d = parseYmd(s); return pad(d.getDate())+"/"+pad(d.getMonth()+1); };
-const brl = v => (Number(v)||0).toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
-const num = v => { if (v === "" || v == null) return null; const n = Number(String(v).replace(/\./g,"").replace(",",".")); return isFinite(n) ? n : null; };
-const digits = s => String(s||"").replace(/\D/g,"");
-const waNum = s => { let d = digits(s); if (!d) return ""; if (d.length <= 11) d = "55"+d; return d; };
-const iniciais = n => String(n||"?").trim().split(/\s+/).slice(0,2).map(p=>p[0]||"").join("").toUpperCase();
-const lsGet = k => { try { return localStorage.getItem(k); } catch(e){ return null; } };
-const lsSet = (k,v) => { try { localStorage.setItem(k,v); } catch(e){} };
-const WA = '<svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.1 5.1 0 0 0 1.1 2.7 11.6 11.6 0 0 0 4.4 3.9c1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2l-.8-.2z"/></svg>';
 
-/* ---------- estado ---------- */
-const DEFAULT_CFG = {
-  estudio: "Estúdio",
-  profissionais: [],
-  servicos: [],
-  msgs: {
-    confirmacao: "Oii {nome}, posso confirmar seu horário para {servico} {quando} às {hora}? 💗",
-    lembrete: "Oi, {nome}! Passando pra lembrar do seu horário amanhã, {data}, às {hora}, para {servico}. Te espero!",
-    cuidados: "Oi, {nome}! Obrigada pela visita. Seguem os cuidados com seu {servico}:\n{cuidados}\nQualquer dúvida, é só me chamar.",
-    retorno: "Oi, {nome}! Já está chegando a hora da manutenção do seu {servico}.\n{precos}\nQuer que eu reserve um horário pra você?",
-    proxima: "Oi, {nome}! Amei cuidar de você hoje 💛\nPra manter seu {servico} sempre lindo, {janela}\n{precos}\nQual dia e horário ficam melhor pra você? Já deixo reservado!",
-    proxima2: "Oi, {nome}! Passando pra ver se já dá pra reservar seu próximo horário de {servico}.\n{Janela}\n{precos}\nQual dia e horário ficam bons pra você?"
-  }
-};
-const S = {
-  tab: "agenda", /* sempre abre no calendário do mês */
-  dia: today(),
-  prof: "todas",
-  mes: today().slice(0,7),
-  busca: "",
-  cfg: null, clientes: [], ags: [], caixa: [], acomp: [], reservas: [],
-  pronto: {cfg:false, clientes:false, ags:false, caixa:false, acomp:false},
-  db: null, canWrite: true
-};
-const cfg = () => S.cfg || DEFAULT_CFG;
-const lista = (v, def) => (Array.isArray(v) && v.length) ? v : def;
-const formas = () => lista(cfg().formas, ["Pix","Dinheiro","Cartão de débito","Cartão de crédito","Link de pagamento (crédito)"]);
-/* taxas de cartão: {forma: {pct, proxDiaUtil}} */
-const TAXAS_PADRAO = {"Cartão de débito":{pct:1.37,proxDiaUtil:true},"Cartão de crédito":{pct:3.15,proxDiaUtil:true},"Link de pagamento (crédito)":{pct:4.2,proxDiaUtil:true}};
-const taxaDe = f => (cfg().taxas && cfg().taxas[f]) || TAXAS_PADRAO[f] || {pct:0, proxDiaUtil:false};
-const proxDiaUtil = s => { let d = addDays(s,1); while ([0,6].includes(parseYmd(d).getDay())) d = addDays(d,1); return d; };
-/* do valor cobrado da cliente ao que entra no caixa: desconta a taxa e move pro dia em que o dinheiro cai */
-/* lança uma entrada no caixa; em combo divide entre as profissionais na proporção do combo */
-async function lancarEntrada(a, valor, forma, dataPag, docBase, desc, categoria){
-  if (!(valor > 0)) return true;
-  if (a.divisao?.length){
-    const soma = a.divisao.reduce((t,d)=>t+(Number(d.valor)||0),0) || 1; let resto = valor; let ok = true;
-    for (let i=0;i<a.divisao.length;i++){ const d = a.divisao[i]; const parte = i===a.divisao.length-1 ? Math.round(resto*100)/100 : Math.round(valor*(Number(d.valor)||0)/soma*100)/100; resto -= parte;
-      ok = (await run(()=>col("caixa").doc(docBase+"-"+d.profId).set({...recebimento(parte, forma, dataPag), tipo:"entrada", forma, descricao:desc+" (combo)", categoria, profId:d.profId, agendamentoId:a.id}))) && ok; }
-    return ok;
-  }
-  return run(()=>col("caixa").doc(docBase).set({...recebimento(valor, forma, dataPag), tipo:"entrada", forma, descricao:desc, categoria, profId:a.profId, agendamentoId:a.id}));
+/* topo fica sólido ao rolar; botão flutuante aparece depois da abertura e some no formulário */
+const nav = $("#nav"), fab = $("#fab"), book = $("#agendar");
+function onScroll(){
+  const y = window.scrollY, h = window.innerHeight;
+  nav.classList.toggle("solid", y > h * 0.75);
+  const b = book.getBoundingClientRect();
+  fab.classList.toggle("off", y < h * 0.8 || (b.top < h && b.bottom > 0));
 }
-const pagoAntes = a => (a.adiantamentos||[]).reduce((s,p)=>s+(Number(p.valor)||0),0);
-function recebimento(bruto, forma, dataAt){
-  const t = taxaDe(forma); const pct = Number(t.pct)||0;
-  const liquido = Math.round(bruto*(100-pct))/100;
-  return {valor: liquido, bruto, taxaPct: pct, taxaValor: Math.round((bruto-liquido)*100)/100, data: t.proxDiaUtil ? proxDiaUtil(dataAt) : dataAt, dataAtendimento: dataAt};
-}
-const catsEntrada = () => lista(cfg().catEntrada, ["Atendimento","Venda de produto","Outro"]);
-const catsSaida = () => lista(cfg().catSaida, ["Material","Aluguel","Contas","Marketing","Outro"]);
-/* ---------- reserva do studio: % do faturamento diário de cada profissional ---------- */
-const CAT_RES = "Reserva do studio";
-const resPct = () => { const n = Number(cfg().reservaPct); return isFinite(n) && n >= 0 ? n : 10; };
-const resHora = () => /^\d{1,2}:\d{2}$/.test(cfg().reservaHora||"") ? cfg().reservaHora : "22:00";
-const resInicio = () => cfg().reservaInicio || "2026-10-10";
-const agoraHM = () => { const d = new Date(); return pad(d.getHours())+":"+pad(d.getMinutes()); };
-function fechamentoDia(data, pid){
-  const ls = S.caixa.filter(l => l.data === data && l.profId === pid);
-  const fat = ls.filter(l => l.tipo === "entrada").reduce((s,l)=>s+l.valor,0);
-  const sai = ls.filter(l => l.tipo === "saida" && l.categoria !== CAT_RES).reduce((s,l)=>s+l.valor,0);
-  return {fat, sai, res: Math.round(fat*resPct())/100};
-}
-function reservasPendentes(){
-  if (resPct() <= 0) return [];
-  if (!S.pronto.caixa || !S.pronto.reservas || !S.cfg) return [];
-  const feitos = new Set(S.reservas.map(r => r.id));
-  const hoje = today(); const passouHora = agoraHM() >= resHora();
-  const dias = [...new Set(S.caixa.map(l => l.data))].filter(d => d >= resInicio() && (d < hoje || (d === hoje && passouHora))).sort();
-  const out = [];
-  for (const d of dias) for (const p of cfg().profissionais){
-    if (feitos.has(d+"_"+p.id)) continue;
-    const f = fechamentoDia(d, p.id); if (f.fat <= 0) continue;
-    out.push({data:d, prof:p, ...f});
-  }
-  return out;
-}
-function renderReserva(){
-  const root = $("#reservaRoot"); const pend = reservasPendentes();
-  document.body.classList.toggle("tem-reserva", pend.length > 0);
-  if (!pend.length){ root.innerHTML = ""; return; }
-  root.innerHTML = '<div class="reserva" role="region" aria-label="Fechamento do dia"><div class="box"><h3>Fechamento do dia · reserva do studio</h3><p class="note" style="margin:0">'+resPct()+'% do faturamento de cada dia vai pra conta do studio, pra investir no crescimento da empresa. Este aviso só some depois da confirmação.</p>'+
-    pend.map(x => '<div class="it"><div class="row"><span class="sw" style="background:'+esc(x.prof.cor)+'"></span><b class="grow">'+esc(x.prof.nome)+'</b><span class="tag">'+esc(fmtDia(x.data))+'</span></div><div class="nums"><div><span>Faturou</span><b class="pos">'+brl(x.fat)+'</b></div><div><span>Saídas</span><b class="neg">'+brl(x.sai)+'</b></div><div><span>Ficou</span><b>'+brl(x.fat-x.sai)+'</b></div></div><div class="row"><span class="dep grow">Depositar na conta do studio: <b>'+brl(x.res)+'</b></span><button class="btn-primary" data-res="'+esc(x.data)+'|'+esc(x.prof.id)+'">Confirmar depósito</button></div></div>').join("")+'</div></div>';
-  root.querySelectorAll("[data-res]").forEach(b => b.onclick = async () => {
-    const [d, pid] = b.dataset.res.split("|"); const x = pend.find(p => p.data===d && p.prof.id===pid); if (!x) return;
-    b.disabled = true; b.textContent = "Salvando…";
-    const ok = await run(async () => {
-      await col("reservas").doc(d+"_"+pid).set({data:d, profId:pid, faturado:x.fat, saidas:x.sai, pct:resPct(), valor:x.res, confirmadoEm:new Date().toISOString()});
-      await col("caixa").doc("res-"+d+"-"+pid).set({data:d, tipo:"saida", valor:x.res, forma:"", categoria:CAT_RES, profId:pid, descricao:resPct()+"% do faturamento de "+fmtCurto(d)});
-    }, "Depósito de "+brl(x.res)+" confirmado");
-    if (!ok){ b.disabled = false; b.textContent = "Confirmar depósito"; }
-  });
-}
-const profById = id => cfg().profissionais.find(p => p.id === id);
-const svcById = id => cfg().servicos.find(s => s.id === id);
-const cliById = id => S.clientes.find(c => c.id === id);
-/* combos: o agendamento guarda `divisao` [{profId, valor}] e conta pras duas profissionais */
-const profsDoAg = a => (a.divisao && a.divisao.length) ? a.divisao.map(d => d.profId) : [a.profId];
-const agDaProf = (a, pid) => pid === "todas" || profsDoAg(a).includes(pid);
-const nomesProfs = a => profsDoAg(a).map(id => profById(id)?.nome).filter(Boolean).join(" + ");
+addEventListener("scroll", onScroll, {passive:true}); onScroll();
 
-/* troca as {chaves}; linha que fica vazia (ex.: {precos} de serviço sem manutenção) some */
-function fill(tpl, ctx){ return String(tpl||"").replace(/\{(\w+)\}/g, (m,k) => ctx[k] != null ? ctx[k] : m).replace(/\n[ \t]*(?=\n)/g, "").replace(/\n{2,}/g, "\n").trim(); }
-/* nome do serviço como a cliente fala: sem "· colocação", "· manutenção até 20 dias" nem "Combo" */
-const nomeMsg = n => String(n||"").replace(/\s*·\s*(coloca[cç][aã]o|manuten[cç][aã]o.*)$/i,"").replace(/^combo\s+/i,"").trim();
-const quandoDia = d => d === today() ? "hoje" : d === addDays(today(),1) ? "amanhã" : "dia "+fmtCurto(d);
-/* valores da manutenção dos cílios, lidos dos serviços cadastrados ("Fox Eyes · manutenção até 20 dias" etc.).
-   Cada tipo tem o seu (Megafox é diferente), então procura a família do serviço da cliente: Fio U, Fox Eyes, Megafox, Volume 5D… */
-const reaisCurto = v => "R$ " + (Math.round(v) === v ? String(v) : brl(v).replace(/^R\$\s?/,""));
-function faixasManut(nomeServico){
-  const alvo = String(nomeServico||"").toLowerCase(); const fams = {};
-  cfg().servicos.forEach(s => { const m = String(s.nome||"").match(/^(.+?)\s*·\s*manuten[cç][aã]o at[eé]\s*(\d+)\s*dias/i); if (!m || s.preco == null) return;
-    const fam = m[1].replace(/^c[ií]lios\s+/i,"").trim().toLowerCase(); (fams[fam] = fams[fam] || []).push({dias:Number(m[2]), preco:Number(s.preco)}); });
-  const fam = Object.keys(fams).filter(f => alvo.includes(f)).sort((a,b)=>b.length-a.length)[0];
-  return fam ? fams[fam].sort((a,b)=>a.dias-b.dias) : [];
-}
-/* as datas de cada valor, contadas a partir do dia do atendimento (base):
-   "até 20 dias" vai até base+20; "até 30 dias" vai de base+21 a base+30. Faixa que já passou não aparece. */
-const diaSemana = d => fmtCurto(d)+" ("+DOW[parseYmd(d).getDay()]+")";
-function precosManut(nomeServico, base){
-  const ps = faixasManut(nomeServico); if (!ps.length) return "";
-  if (!base) return "Vindo com até "+ps[0].dias+" dias, a manutenção fica "+reaisCurto(ps[0].preco)+ps.slice(1).map(p => "; com até "+p.dias+" dias, "+reaisCurto(p.preco)).join("")+".";
-  const hoje = today(); const linhas = [];
-  ps.forEach((p,i) => { const fim = addDays(base, p.dias); const ini = i ? addDays(base, ps[i-1].dias+1) : null;
-    if (fim < hoje) return;
-    const de = ini && ini > hoje ? ini : null;
-    linhas.push("• "+(de ? "do dia "+diaSemana(de)+" ao dia "+diaSemana(fim) : "até o dia "+diaSemana(fim))+", você paga "+(i===0?"só ":"")+reaisCurto(p.preco)); });
-  return linhas.join("\n");
-}
-/* frase da janela: em serviço normal, "o ideal é voltar entre X e Y"; nos cílios, as datas de cada valor vêm logo abaixo */
-function janelaTxt(nomeServico, de, ate){ return faixasManut(nomeServico).length ? "já deixa sua manutenção garantida:" : "o ideal é voltar entre "+de+" e "+ate+"."; }
-const maiuscula = t => t ? t[0].toUpperCase()+t.slice(1) : t;
-function ctxAg(a){
-  const c = cliById(a.clienteId) || {}; const p = profById(a.profId) || {}; const s = svcById(a.servicoId) || {};
-  return { nome: (c.nome||"").split(" ")[0], servico: nomeMsg(a.servicoNome || s.nome) || "atendimento", data: fmtCurto(a.data), quando: quandoDia(a.data), hora: a.hora, prof: p.nome || "", estudio: cfg().estudio, cuidados: s.cuidados || "", precos: precosManut(a.servicoNome || s.nome, a.data) };
-}
-function waLink(tel, msg){ const n = waNum(tel); if (!n) return ""; return "https://wa.me/"+n+"?text="+encodeURIComponent(msg); }
-function waBtn(tel, msg, label, cls, attrs){
-  const href = waLink(tel, msg);
-  if (!href) return '<span class="tag">sem telefone</span>';
-  return '<a class="btn btn-wa '+(cls||"btn-sm")+'" href="'+esc(href)+'" target="_blank" rel="noopener"'+(attrs?" "+attrs:"")+'>'+WA+esc(label)+'</a>';
-}
+/* seções entram suaves */
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add("on"); io.unobserve(e.target); } }), {rootMargin:"0px 0px -8% 0px"});
+document.querySelectorAll(".rv").forEach(el => io.observe(el));
 
-/* ---------- toast e modal ---------- */
-let toastT;
-function toast(msg){ clearTimeout(toastT); let t = $("#toast"); if (!t){ t = document.createElement("div"); t.id="toast"; t.className="toast"; t.setAttribute("role","status"); document.body.appendChild(t); } t.textContent = msg; t.hidden = false; toastT = setTimeout(()=>{ t.hidden = true; }, 2600); }
-function modal(html, onMount){
-  const root = $("#modalRoot");
-  root.innerHTML = '<div class="modal-bg"><div class="modal" role="dialog" aria-modal="true">'+html+'</div></div>';
-  const bg = root.firstChild;
-  bg.addEventListener("click", e => { if (e.target === bg) closeModal(); });
-  const first = bg.querySelector("input,select,textarea,button"); if (first) first.focus();
-  if (onMount) onMount(bg.firstChild);
-}
-function closeModal(){ $("#modalRoot").innerHTML = ""; }
-document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
-function confirmar(texto, okLabel, fn){
-  modal('<h3>'+esc(texto)+'</h3><div class="foot"><button data-x="no">Voltar</button><button class="btn-primary" data-x="ok">'+esc(okLabel)+'</button></div>', m => {
-    m.querySelector('[data-x="no"]').onclick = closeModal;
-    m.querySelector('[data-x="ok"]').onclick = async () => { closeModal(); await fn(); };
-  });
-}
+/* "Quero esse" já escolhe a técnica no formulário */
+document.querySelectorAll("[data-tec]").forEach(a => a.addEventListener("click", () => { $("#tec").value = a.dataset.tec; }));
 
-/* ---------- gravação ---------- */
-async function run(fn, okMsg){
-  if (!S.db){ toast("Você saiu da conta. Entre de novo pra salvar."); return false; }
-  try { await fn(); if (okMsg) toast(okMsg); return true; }
-  catch(e){
-    if (e && e.code === "invalid_argument" && !S.canWriteChecked){ S.canWrite = false; renderBanner(); }
-    toast(e && e.code === "quota_exceeded" ? "O banco de dados está cheio. Apague registros antigos." : "Não deu pra salvar. Confira a conexão e tente de novo.");
-    console.error(e); return false;
-  }
-}
-const col = n => S.db.collection(n);
+/* foto ampliada */
+const lb = $("#lb");
+document.querySelectorAll(".g").forEach(g => {
+  const open = () => { lb.querySelector("img").src = g.querySelector("img").src; lb.querySelector("img").alt = g.querySelector("img").alt; lb.hidden = false; lb.querySelector("button").focus(); };
+  g.addEventListener("click", open); g.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " "){ e.preventDefault(); open(); } });
+});
+lb.addEventListener("click", e => { if (e.target !== lb.querySelector("img")) lb.hidden = true; });
+addEventListener("keydown", e => { if (e.key === "Escape") lb.hidden = true; });
 
-/* ---------- abas ---------- */
-document.querySelectorAll("nav.tabs button").forEach(b => b.addEventListener("click", () => { S.tab = b.dataset.tab; lsSet("estudio.tab", S.tab); render(); window.scrollTo(0,0); }));
-
-function render(){
-  document.querySelectorAll("nav.tabs button").forEach(b => b.setAttribute("aria-current", b.dataset.tab === S.tab ? "page" : "false"));
-  const nomeEst = cfg().estudio || "Estúdio"; const pre = nomeEst.match(/^(st[uú]dio|est[uú]dio)\s+(.+)$/i);
-  const nm = pre ? pre[2] : nomeEst;
-  $("#mono").textContent = iniciais(nm);
-  $("#brand").innerHTML = (pre ? '<span class="pre">'+esc(pre[1].toUpperCase())+'</span>' : '') + '<span class="nm">'+esc(nm.toUpperCase())+'</span>' + "<small>" + esc(cfg().profissionais.map(p=>p.area||p.nome).filter(Boolean).join(" · ") || "Sobrancelha · Maquiagem · Cílios") + "</small>";
-  $("#todayLbl").textContent = fmtDia(today());
-  const pend = S.acomp.filter(a => !a.feito && a.data <= today() && acompValido(a)).length;
-  const dot = $("#dueDot"); dot.hidden = !pend; dot.textContent = pend;
-  const v = $("#view");
-  if (!S.db && S.dbChecked){ v.innerHTML = '<div class="empty"><b>Não deu pra carregar</b>Confira a internet e recarregue a página.</div>'; return; }
-  ({agenda:viewAgenda, clientes:viewClientes, retornos:viewRetornos, caixa:viewCaixa, ajustes:viewAjustes}[S.tab] || viewAgenda)(v);
-  renderReserva();
-}
-setInterval(() => { if (!$("#modalRoot").innerHTML) renderReserva(); }, 60000);
-function renderBanner(){
-  if (window.__DEMO) { $("#banner").innerHTML = '<div class="demo"><b>Demonstração</b><span>o que você marcar fica só neste aparelho</span></div>'; return; }
-  $("#banner").innerHTML = S.canWrite ? "" : '<div class="banner">Você pode ver a agenda, mas não alterar. Peça pra quem criou o app te dar acesso de edição.</div>';
-}
-function profChips(){
-  const ps = cfg().profissionais;
-  if (ps.length < 2) return "";
-  return '<div class="chips" role="group" aria-label="Profissional">' +
-    '<button class="chip" data-prof="todas" aria-pressed="'+(S.prof==="todas")+'">Todas</button>' +
-    ps.map(p => '<button class="chip" data-prof="'+esc(p.id)+'" aria-pressed="'+(S.prof===p.id)+'"><span class="sw" style="background:'+esc(p.cor)+'"></span>'+esc(p.nome)+'</button>').join("") + '</div>';
-}
-function bindProfChips(v){ v.querySelectorAll("[data-prof]").forEach(b => b.onclick = () => { S.prof = b.dataset.prof; render(); }); }
-
-/* ---------- AGENDA ---------- */
-/* abre no mês inteiro (como o Calendário do iPhone); tocar num dia mostra os horários dele embaixo */
-const dtAg = a => { const d = parseYmd(a.data); const [h,m] = String(a.hora||"0:0").split(":").map(Number); d.setHours(h||0, m||0, 0, 0); return d; };
-const primeiroNome = c => String(c?.nome||"").split(" ")[0];
-function painelConfirmar(){
-  const agora = Date.now();
-  const lista = S.ags.filter(a => a.status === "agendado" && agDaProf(a, S.prof)).map(a => ({a, h:(dtAg(a)-agora)/3600000})).filter(x => x.h > 0 && x.h <= 24).sort((x,y)=>x.h-y.h);
-  if (!lista.length) return "";
-  const urg = lista.filter(x => x.h < 12 && !x.a.confEnviadaEm).length;
-  return '<details class="msgbox"'+(S.confAberto?" open":"")+'><summary><span class="cnt">'+lista.length+'</span>Confirmar horários'+(urg?' <span class="urg">· '+urg+' urgente'+(urg>1?"s":"")+'</span>':'')+'</summary><p class="note" style="margin:0">Clientes com horário nas próximas 24 horas que ainda não confirmaram. O ideal é mandar entre 24 e 12 horas antes.</p>'+
-    lista.map(({a,h}) => { const c = cliById(a.clienteId) || {}; const hh = Math.max(1, Math.round(h));
-      const quando = a.data === today() ? "hoje" : "amanhã";
-      const st = a.confEnviadaEm ? 'Mensagem enviada '+esc(a.confEnviadaEm.slice(11,16))+'. Esperando a resposta.' : (h < 12 ? '<span class="urg">Faltam '+hh+'h. Confirme agora.</span>' : 'Faltam '+hh+'h. Hora certa de confirmar.');
-      return '<div class="it"><div class="row"><b class="grow">'+esc(c.nome||"Cliente")+'</b><span class="tag">'+quando+' às '+esc(a.hora)+'</span></div><div class="tag">'+esc(a.servicoNome||"")+(nomesProfs(a)?" · "+esc(nomesProfs(a)):"")+'</div><div class="tag">'+st+'</div><div class="row">'+waBtn(c.telefone, fill(cfg().msgs.confirmacao, ctxAg(a)), a.confEnviadaEm ? "Mandar de novo" : "Mandar confirmação", "btn-sm", 'data-confwa="'+esc(a.id)+'"')+'<button class="btn-sm" data-ag="'+esc(a.id)+'" data-act="confirmado">Ela confirmou</button></div></div>'; }).join("")+'</details>';
-}
-function calendarioMes(doProf){
-  const mes = S.dia.slice(0,7); const first = parseYmd(mes+"-01");
-  const ini = addDays(mes+"-01", -first.getDay());
-  const diasNoMes = new Date(first.getFullYear(), first.getMonth()+1, 0).getDate();
-  const semanas = Math.ceil((first.getDay()+diasNoMes)/7);
-  const hoje = today(); const MAX = 3;
-  let html = '<div class="cal" role="grid" aria-label="Calendário do mês">'+DOW.map(d=>'<div class="dw" role="columnheader">'+d.slice(0,3)+'</div>').join("");
-  for (let i=0;i<semanas*7;i++){
-    const d = addDays(ini, i); const ags = S.ags.filter(a => a.data === d && doProf(a) && a.status !== "cancelado").sort((x,y)=>x.hora.localeCompare(y.hora));
-    const cls = ["cell", d.slice(0,7)!==mes?"fora":"", d===hoje?"hoje":"", d===S.dia?"sel":""].filter(Boolean).join(" ");
-    const evs = ags.slice(0, ags.length > MAX ? MAX-1 : MAX).map(a => { const p = profById(a.profId) || {}; const c = cliById(a.clienteId);
-      return '<span class="ev'+(a.status==="concluido"?" ok":"")+(a.status==="confirmado"?" conf":"")+'" style="--c:'+esc(p.cor||"#B0843A")+'"><s>'+esc(a.hora)+'</s> '+esc(primeiroNome(c)||"Cliente")+'</span>'; }).join("");
-    const mais = ags.length > MAX ? '<span class="more">+'+(ags.length-MAX+1)+'</span>' : '';
-    const bqs = bloqueios().filter(b => b.data === d && bloqDoFiltro(b, S.prof));
-    const evBq = bqs.length ? '<span class="ev bloq">🔒 '+(bqs.some(b=>b.diaTodo) ? "fechado" : esc(bqs[0].de))+'</span>' : '';
-    html += '<button class="'+cls+'" data-dia="'+d+'" aria-label="'+esc(fmtDia(d))+(ags.length? ", "+ags.length+" horário"+(ags.length>1?"s":""):"")+'" aria-pressed="'+(d===S.dia)+'"><span class="n">'+parseYmd(d).getDate()+'</span>'+evBq+evs+mais+'</button>';
-  }
-  return html+'</div>';
-}
-function viewAgenda(v){
-  const doProf = a => agDaProf(a, S.prof);
-  const doDia = S.ags.filter(a => a.data === S.dia && doProf(a)).sort((a,b)=> a.hora.localeCompare(b.hora));
-  const [y,mm] = S.dia.slice(0,7).split("-").map(Number);
-  let html = '<div class="datebar"><button class="btn-sm" data-cm="-1" aria-label="Mês anterior">‹</button><div class="label">'+MES[mm-1]+' '+y+'</div><button class="btn-sm" data-cm="1" aria-label="Próximo mês">›</button></div>';
-  html += painelConfirmar();
-  html += '<div class="busca-ag"><input id="buscaAg" type="search" autocomplete="off" placeholder="🔍 Buscar cliente por nome ou número"><div id="buscaAgRes" class="achou" style="margin-top:6px"></div></div>';
-  html += profChips();
-  html += calendarioMes(doProf);
-  html += '<div class="dayhead"><h2>'+esc(fmtDia(S.dia))+'</h2>'+(S.dia!==today()?'<button class="btn-sm" data-dia="'+today()+'">Hoje</button>':'')+'</div>';
-  html += '<div class="row" style="margin-bottom:12px"><button class="btn-primary grow" data-new style="justify-content:center">+ Novo agendamento</button><button data-bloq>🔒 Fechar horário</button></div>';
-  if (!cfg().profissionais.length || !cfg().servicos.length){
-    html += '<div class="banner">Antes do primeiro agendamento, cadastre as profissionais e os serviços (com preço) em <b>Ajustes</b>.</div>';
-  }
-  const bqDia = bloqueios().filter(b => b.data === S.dia && bloqDoFiltro(b, S.prof));
-  if (!doDia.length && !bqDia.length){
-    html += '<div class="empty"><b>Nenhum horário neste dia</b>Toque em “Novo agendamento” pra marcar uma cliente.</div>';
-  } else {
-    const total = doDia.filter(a=>a.status==="concluido").reduce((s,a)=>s+(a.pago?.valor||0),0);
-    const itens = [...bqDia.map(b => ({h: b.diaTodo ? "00:00" : b.de, html: cardBloq(b)})), ...doDia.map(a => ({h: a.hora, html: cardAg(a)}))].sort((x,y)=>x.h.localeCompare(y.h));
-    html += '<div class="list">'+itens.map(x=>x.html).join("")+'</div>';
-    if (total) html += '<p class="note" style="margin-top:10px">Recebido neste dia: <span class="money">'+brl(total)+'</span></p>';
-  }
-  v.innerHTML = html;
-  v.querySelectorAll("[data-cm]").forEach(b => b.onclick = () => { const d = new Date(y, mm-1+Number(b.dataset.cm), 1); const alvo = d.getFullYear()+"-"+pad(d.getMonth()+1); S.dia = today().slice(0,7) === alvo ? today() : alvo+"-01"; render(); });
-  v.querySelectorAll("[data-dia]").forEach(b => b.onclick = () => { const mudouMes = b.dataset.dia.slice(0,7) !== S.dia.slice(0,7); S.dia = b.dataset.dia; render(); if (!mudouMes) { const h = $(".dayhead"); if (h && h.getBoundingClientRect().top > innerHeight*0.6) h.scrollIntoView({behavior:"smooth", block:"start"}); } });
-  bindProfChips(v);
-  v.querySelector("[data-new]").onclick = () => formAg();
-  v.querySelector("[data-bloq]").onclick = () => formBloq();
-  v.querySelectorAll("[data-bdel]").forEach(b => b.onclick = () => abrirBloq(b.dataset.bdel));
-  const ba = v.querySelector("#buscaAg"), br = v.querySelector("#buscaAgRes");
-  ba.oninput = () => { const t = ba.value.trim(); if (!t) { br.innerHTML = ""; return; }
-    const r = achaClientes(t, 6);
-    br.innerHTML = r.length ? r.map(c => linhaCli(c, '<button class="btn-sm" data-ficha="'+esc(c.id)+'">Ver ficha</button>')).join("") : '<p class="note" style="margin:0">Ninguém encontrado.</p>';
-    br.querySelectorAll("[data-ficha]").forEach(b => b.onclick = () => fichaCliente(b.dataset.ficha)); };
-  v.querySelectorAll("[data-ag]").forEach(b => b.onclick = () => acaoAg(b.dataset.ag, b.dataset.act));
-  bindConfWa(v);
-  const det = v.querySelector("details.msgbox"); if (det) det.ontoggle = () => { S.confAberto = det.open; };
-}
-/* ao tocar no botão do WhatsApp de confirmação, guarda a hora do envio (o app não sabe se ela mandou mesmo, só que abriu a conversa) */
-function bindConfWa(v){ v.querySelectorAll("[data-confwa]").forEach(b => b.addEventListener("click", () => { run(()=>col("agendamentos").doc(b.dataset.confwa).update({confEnviadaEm: new Date(Date.now() - new Date().getTimezoneOffset()*60000).toISOString().slice(0,16).replace("T"," ")})); })); }
-const ST = {agendado:"Agendado", confirmado:"Confirmado", concluido:"Concluído", faltou:"Faltou", cancelado:"Cancelado"};
-function fichaDom(d){
-  const l = (t,v) => v ? '<div class="line"><div class="grow"><small>'+t+'</small>'+esc(v)+'</div></div>' : '';
-  return '<details class="tag" style="margin-top:4px"><summary><b>🏠 Domiciliar</b>'+(d.evento?' · '+esc(d.evento):'')+(d.prontaAs?' · pronta às '+esc(d.prontaAs):'')+' · taxa <span class="money">'+brl(d.taxa??taxaDom())+'</span></summary>'+
-    l("Endereço", d.endereco)+l("O que ela quer", d.estilo)+l("Pessoas", d.pessoas)+l("Ponto de referência", d.referencia)+l("Observações do local", d.obs)+
-    (d.endereco?'<a class="btn-sm" style="display:inline-block;margin-top:6px" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(d.endereco)+'">Abrir no mapa</a>':'')+'</details>';
-}
-function cardAg(a){
-  const c = cliById(a.clienteId) || {nome:"Cliente removida"}; const p = profById(a.profId) || {}; const ctx = ctxAg(a);
-  const aberto = a.status === "agendado" || a.status === "confirmado";
-  let acts = "";
-  if (aberto){
-    acts += waBtn(c.telefone, fill(a.status==="agendado"? cfg().msgs.confirmacao : cfg().msgs.lembrete, ctx), a.status==="agendado" ? "Confirmar" : "Lembrar", "btn-sm", a.status==="agendado" ? 'data-confwa="'+esc(a.id)+'"' : "");
-    if (a.status === "agendado") acts += '<button class="btn-sm" data-ag="'+a.id+'" data-act="confirmado">Marcar confirmado</button>';
-    acts += '<button class="btn-sm" data-ag="'+a.id+'" data-act="sinal">'+(pagoAntes(a)>0?"Pagamentos":"Sinal / adiantado")+'</button>';
-    acts += '<button class="btn-sm btn-primary" data-ag="'+a.id+'" data-act="concluir">Concluir e receber</button>';
-    acts += '<button class="btn-sm" data-ag="'+a.id+'" data-act="editar">Editar</button>';
-    acts += '<button class="btn-sm btn-ghost" data-ag="'+a.id+'" data-act="faltou">Faltou</button>';
-    acts += '<button class="btn-sm btn-ghost" data-ag="'+a.id+'" data-act="cancelado">Cancelar</button>';
-  } else if (a.status === "concluido"){
-    acts += '<span class="tag">Recebido <span class="money">'+brl(a.pago?.valor)+'</span> · '+esc(a.pago?.forma||"")+'</span>';
-  } else {
-    acts += '<button class="btn-sm" data-ag="'+a.id+'" data-act="agendado">Reabrir</button>';
-  }
-  return '<article class="appt" style="--c:'+esc(p.cor||"var(--accent)")+'"><div class="h">'+esc(a.hora)+'<small>'+esc(a.duracao||"")+(a.duracao?" min":"")+'</small></div><div style="min-width:0"><div class="row"><span class="who grow">'+esc(c.nome)+'</span><span class="pill st-'+a.status+'">'+ST[a.status]+'</span></div><div class="what">'+esc(ctx.servico)+(nomesProfs(a)? " · "+esc(nomesProfs(a)):"")+(a.valor!=null? ' · <span class="money">'+brl(a.valor)+'</span>':"")+'</div>'+(a.domicilio?fichaDom(a.domicilio):'')+(a.obs?'<div class="tag">'+esc(a.obs)+'</div>':'')+(pagoAntes(a)>0 && aberto ? '<div class="tag" style="color:var(--ok)">'+(a.valor!=null && pagoAntes(a)>=a.valor ? "Pago adiantado " : "Sinal pago ")+'<span class="money">'+brl(pagoAntes(a))+'</span>'+(a.valor!=null && pagoAntes(a)<a.valor?' · falta <span class="money">'+brl(a.valor-pagoAntes(a))+'</span>':'')+'</div>' : '')+'<div class="acts">'+acts+'</div></div></article>';
-}
-async function acaoAg(id, act){
-  const a = S.ags.find(x=>x.id===id); if (!a) return;
-  if (act === "editar") return formAg(a);
-  if (act === "concluir") return formConcluir(a);
-  if (act === "sinal") return formSinal(a);
-  if (act === "cancelado") return confirmar("Cancelar o horário de "+(cliById(a.clienteId)?.nome||"")+"?", "Cancelar horário", () => run(()=>col("agendamentos").doc(id).update({status:"cancelado"}), "Horário cancelado"));
-  await run(()=>col("agendamentos").doc(id).update({status:act}), act==="faltou"?"Marcado como falta":act==="confirmado"?"Horário confirmado":"Horário reaberto");
-}
-function clienteOptions(sel){ return S.clientes.slice().sort((a,b)=>a.nome.localeCompare(b.nome)).map(c=>'<option value="'+esc(c.id)+'"'+(c.id===sel?" selected":"")+'>'+esc(c.nome)+'</option>').join(""); }
-/* ---------- clientes: achar pelo nome ou pelo número ---------- */
-const semAcento = s => String(s||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().trim();
-/* compara só os últimos 8 dígitos: pega o número com ou sem DDD, com ou sem o 9 da frente */
-const telChave = t => digits(t).slice(-8);
-const clientePorTel = t => { const k = telChave(t); return k.length >= 8 ? S.clientes.find(c => telChave(c.telefone) === k) : null; };
-const clientePorNome = n => { const k = semAcento(n); return k.length >= 3 ? S.clientes.find(c => semAcento(c.nome) === k) : null; };
-function achaClientes(q, max){
-  const t = String(q||"").trim(); if (!t) return [];
-  const d = digits(t), k = semAcento(t);
-  return S.clientes.filter(c => d.length >= 3 ? digits(c.telefone).includes(d) : semAcento(c.nome).includes(k))
-    .sort((a,b)=>a.nome.localeCompare(b.nome)).slice(0, max||8);
-}
-const linhaCli = (c, botao) => '<div class="line"><span class="av">'+esc(iniciais(c.nome))+'</span><div class="grow"><b>'+esc(c.nome)+'</b><small>'+esc(c.telefone||"sem telefone")+'</small></div>'+botao+'</div>';
-
-/* ---------- dias e horários fechados (compromisso, folga): ficam na config ---------- */
-const bloqueios = () => cfg().bloqueios || [];
-const bloqIni = b => b.diaTodo ? 0 : toMin(b.de);
-const bloqFim = b => b.diaTodo ? 24*60 : toMin(b.ate);
-const bloqTodas = b => !b.profId || b.profId === "todas";
-const bloqDoFiltro = (b, pid) => pid === "todas" || bloqTodas(b) || b.profId === pid;
-const txtBloq = b => b.diaTodo ? "o dia todo" : "das "+b.de+" às "+b.ate;
-const quemBloq = b => bloqTodas(b) ? "Todas" : (profById(b.profId)?.nome || "");
-function bloqueioEm(data, ini, fim, profs){ return bloqueios().find(b => b.data === data && ini < bloqFim(b) && fim > bloqIni(b) && (bloqTodas(b) || profs.includes(b.profId))); }
-function cardBloq(b){
-  return '<article class="appt bloq" style="--c:#9b948a"><div class="h">🔒<small>'+(b.diaTodo?"dia todo":esc(b.de))+'</small></div><div style="min-width:0"><div class="row"><span class="who grow">Fechado '+esc(txtBloq(b))+'</span></div><div class="what">'+esc(b.motivo||"Sem atendimento")+' · '+esc(quemBloq(b))+'</div><div class="acts"><button class="btn-sm btn-ghost" data-bdel="'+esc(b.id)+'">Abrir esse horário de novo</button></div></div></article>';
-}
-function formBloq(){
-  const ps = cfg().profissionais; const pidPadrao = S.prof !== "todas" ? S.prof : "todas";
-  modal('<h3>Fechar dia ou horário</h3><p class="note">Pra não marcar ninguém por engano num compromisso, folga ou feriado.</p><form class="form" id="fBq">'+
-    '<label class="f">Dia<input type="date" id="bqData" value="'+esc(S.dia)+'" required></label>'+
-    '<label class="row"><input type="checkbox" id="bqTodo" style="width:auto"> O dia todo</label>'+
-    '<div class="two" id="bqHoras"><label class="f">Das<input type="time" id="bqDe" value="13:00"></label><label class="f">Até<input type="time" id="bqAte" value="18:00"></label></div>'+
-    '<label class="f">Quem não vai atender<select id="bqProf"><option value="todas"'+(pidPadrao==="todas"?" selected":"")+'>Todas (estúdio fechado)</option>'+ps.map(p=>'<option value="'+esc(p.id)+'"'+(p.id===pidPadrao?" selected":"")+'>'+esc(p.nome)+'</option>').join("")+'</select></label>'+
-    '<label class="f">Motivo (só vocês veem)<input id="bqMot" placeholder="ex.: compromisso pessoal, médico, feriado"></label>'+
-    '<p class="note" id="bqAviso"></p>'+
-    '<div class="foot"><button type="button" id="bqX">Voltar</button><button class="btn-primary">Fechar horário</button></div></form>', m => {
-    const $ = s => m.querySelector(s);
-    const aviso = () => { const d = $("#bqData").value, todo = $("#bqTodo").checked, pid = $("#bqProf").value;
-      $("#bqHoras").hidden = todo;
-      const ini = todo ? 0 : toMin($("#bqDe").value), fim = todo ? 24*60 : toMin($("#bqAte").value);
-      const ja = S.ags.filter(x => x.data === d && (x.status==="agendado"||x.status==="confirmado") && (pid==="todas" || profsDoAg(x).includes(pid)) && toMin(x.hora) < fim && toMin(x.hora)+(Number(x.duracao)||60) > ini);
-      $("#bqAviso").innerHTML = ja.length ? '<span style="color:var(--warn)">Atenção: já tem horário marcado nesse período: '+ja.map(x=>esc(cliById(x.clienteId)?.nome||"cliente")+' às '+esc(x.hora)).join(", ")+'. Fechar não desmarca ninguém.</span>' : ""; };
-    ["#bqData","#bqTodo","#bqDe","#bqAte","#bqProf"].forEach(s => { $(s).oninput = aviso; $(s).onchange = aviso; }); aviso();
-    $("#bqX").onclick = closeModal;
-    $("#fBq").onsubmit = async e => { e.preventDefault();
-      const todo = $("#bqTodo").checked, de = $("#bqDe").value, ate = $("#bqAte").value;
-      if (!todo && (!de || !ate || toMin(ate) <= toMin(de))) { toast("Confira o horário: o fim tem que ser depois do começo."); return; }
-      const b = {id: "b"+Date.now().toString(36), data: $("#bqData").value, diaTodo: todo, de: todo ? "" : de, ate: todo ? "" : ate, profId: $("#bqProf").value, motivo: $("#bqMot").value.trim()};
-      const limite = addDays(today(), -60); /* os fechados muito antigos saem sozinhos */
-      closeModal();
-      await saveCfg({bloqueios: [...bloqueios().filter(x => x.data >= limite), b]}, "Horário fechado na agenda");
-      S.dia = b.data; render();
-    };
-  });
-}
-function abrirBloq(id){ const b = bloqueios().find(x => x.id === id); if (!b) return;
-  confirmar("Abrir de novo "+txtBloq(b)+" de "+fmtCurto(b.data)+"?", "Abrir horário", () => saveCfg({bloqueios: bloqueios().filter(x => x.id !== id)}, "Horário aberto de novo")); }
-
-/* ---------- vários serviços no mesmo horário + atendimento domiciliar ---------- */
-const domRe = () => { try { return new RegExp(cfg().domicilioServicos || "maquiagem|penteado|babyliss", "i"); } catch(e){ return /maquiagem|penteado|babyliss/i; } };
-const taxaDom = () => { const t = Number(cfg().taxaDomicilio); return isFinite(t) && cfg().taxaDomicilio != null ? t : 30; };
-/* serviços do agendamento (os antigos só têm servicoId) */
-const svcsDoAg = a => (a.servicos && a.servicos.length) ? a.servicos : (a.servicoId ? [{id:a.servicoId, nome:a.servicoNome||svcById(a.servicoId)?.nome||""}] : []);
-/* soma as partes de cada profissional: combo entra com a divisão dele, serviço solo vai pra quem faz */
-function partesDe(ids, pidPadrao, extra, pidExtra){
-  const m = new Map(); const soma = (pid, v) => { if (!pid) return; m.set(pid, Math.round(((m.get(pid)||0) + (Number(v)||0))*100)/100); };
-  ids.forEach(id => { const s = svcById(id); if (!s) return; if (s.divisao?.length) s.divisao.forEach(d => soma(d.profId, d.valor)); else soma(s.profId || pidPadrao, s.preco); });
-  if (extra) soma(pidExtra || pidPadrao, extra);
-  if (!m.size) m.set(pidPadrao, 0);
-  return [...m].map(([profId, valor]) => ({profId, valor}));
-}
-function formAg(a, cliPre){
-  const ed = !!a; a = a || {data:S.dia, hora:"", profId: S.prof!=="todas"? S.prof : (cfg().profissionais[0]?.id||""), clienteId: cliPre||"", servicoId:"", valor:null, obs:""};
-  const ps = cfg().profissionais;
-  let sel = svcsDoAg(a).map(x => x.id).filter(Boolean);
-  const dm = a.domicilio || {};
-  modal('<h3>'+(ed?"Editar agendamento":"Novo agendamento")+'</h3><form class="form" id="fAg">'+
-    '<label class="f">Cliente<input id="agBusca" type="search" autocomplete="off" placeholder="Digite o nome ou o WhatsApp da cliente"></label><div id="agAchou" class="achou"></div>'+
-    '<label class="f"><span class="note" style="margin:0">ou escolha na lista</span><select id="agCli"><option value="">Escolha…</option><option value="__nova">+ Nova cliente</option>'+clienteOptions(a.clienteId)+'</select></label>'+
-    '<div id="novaCli" hidden><div class="two"><label class="f">Nome<input id="ncNome" autocomplete="off"></label><label class="f">WhatsApp<input id="ncTel" inputmode="tel" placeholder="(DDD) 9 0000-0000"></label></div><div id="ncAviso"></div></div>'+
-    '<label class="f">Profissional<select id="agProf">'+ps.map(p=>'<option value="'+esc(p.id)+'"'+(p.id===a.profId?" selected":"")+'>'+esc(p.nome)+'</option>').join("")+'</select></label>'+
-    '<div class="f"><span>Serviços</span><div id="agLista" class="card" style="padding:6px 10px"></div><select id="agSvc" aria-label="Adicionar serviço"></select></div>'+
-    '<div id="agDomBox" hidden><label class="row"><input type="checkbox" id="agDom" style="width:auto"'+(a.domicilio?" checked":"")+'> Atendimento domiciliar (+ <span id="agTaxaTxt"></span>)</label>'+
-    '<div id="agDomFicha" class="card form" style="margin-top:8px"'+(a.domicilio?"":" hidden")+'><b>Ficha do domiciliar</b>'+
-      '<label class="f">Endereço<input id="dEnd" value="'+esc(dm.endereco||"")+'" placeholder="rua, número, bairro, cidade"></label>'+
-      '<div class="two"><label class="f">Ocasião / evento<input id="dEv" value="'+esc(dm.evento||"")+'" placeholder="ex.: casamento, formatura, ensaio"></label><label class="f">Precisa estar pronta às<input type="time" id="dPronta" value="'+esc(dm.prontaAs||"")+'"></label></div>'+
-      '<label class="f">O que ela quer (estilo, referência)<textarea id="dEst" placeholder="ex.: make leve com pele iluminada, coque baixo, mandou foto de referência">'+esc(dm.estilo||"")+'</textarea></label>'+
-      '<div class="two"><label class="f">Quantas pessoas<input id="dPes" inputmode="numeric" value="'+esc(dm.pessoas||"")+'" placeholder="1"></label><label class="f">Ponto de referência<input id="dRef" value="'+esc(dm.referencia||"")+'"></label></div>'+
-      '<label class="f">Observações do local<input id="dObs" value="'+esc(dm.obs||"")+'" placeholder="ex.: apartamento 3º andar, tem boa luz perto da janela"></label>'+
-    '</div></div>'+
-    '<div class="two"><label class="f">Dia<input type="date" id="agData" value="'+esc(a.data)+'" required></label><label class="f">Hora<input type="time" id="agHora" value="'+esc(a.hora)+'" required></label></div>'+
-    '<div class="two"><label class="f">Valor total (R$)<input id="agValor" inputmode="decimal" value="'+(a.valor!=null? String(a.valor).replace(".",","):"")+'"></label><label class="f">Duração (min)<input id="agDur" inputmode="numeric" value="'+esc(a.duracao||"")+'"></label></div>'+
-    '<label class="f">Observação<input id="agObs" value="'+esc(a.obs||"")+'" placeholder="ex.: alérgica a cola, prefere fio mais curto"></label>'+
-    '<p class="note" id="agConf"></p>'+
-    '<div class="foot">'+(ed?'<button type="button" class="btn-danger" id="agDel">Apagar</button>':'')+'<button type="button" id="agX">Voltar</button><button class="btn-primary">Salvar</button></div></form>', m => {
-    const $ = s => m.querySelector(s);
-    $("#agTaxaTxt").textContent = brl(taxaDom());
-    const temDom = () => sel.some(id => domRe().test(svcById(id)?.nome||""));
-    const domOn = () => temDom() && $("#agDom").checked;
-    const fSvc = () => { const pid = $("#agProf").value; const ss = cfg().servicos.filter(s=>!s.profId || s.profId===pid || (s.divisao||[]).some(d=>d.profId===pid));
-      $("#agSvc").innerHTML = '<option value="">'+(ss.length ? (sel.length ? "+ Adicionar outro serviço…" : "Escolha o serviço…") : "Cadastre serviços em Ajustes")+'</option>'+ss.map(s=>'<option value="'+esc(s.id)+'">'+esc(s.nome)+(s.preco!=null?" — "+brl(s.preco):"")+'</option>').join(""); };
-    const fLista = () => {
-      $("#agLista").innerHTML = sel.length ? sel.map((id,i) => { const s = svcById(id); return '<div class="line"><div class="grow">'+esc(s?.nome||"Serviço removido")+'</div><span class="money">'+(s?.preco!=null?brl(s.preco):"")+'</span><button type="button" class="btn-ghost btn-sm" data-rm="'+i+'" aria-label="Tirar serviço">✕</button></div>'; }).join("") : '<p class="note" style="margin:6px 0">Nenhum serviço ainda.</p>';
-      m.querySelectorAll("[data-rm]").forEach(b => b.onclick = () => { sel.splice(Number(b.dataset.rm),1); muda(); });
-      $("#agDomBox").hidden = !temDom(); $("#agDomFicha").hidden = !domOn();
-    };
-    /* valor = soma dos serviços (+ taxa do domiciliar); duração = soma */
-    const preVal = () => { const ss = sel.map(svcById).filter(Boolean); if (!ss.length) return;
-      const tot = ss.reduce((t,s)=>t+(Number(s.preco)||0),0) + (domOn()?taxaDom():0); $("#agValor").value = String(Math.round(tot*100)/100).replace(".",",");
-      const dur = ss.reduce((t,s)=>t+(Number(s.duracao)||0),0); if (dur) $("#agDur").value = dur; checa(); };
-    const muda = () => { fLista(); fSvc(); preVal(); };
-    const envolvidas = () => { const pid = $("#agProf").value; return partesDe(sel, pid).map(x=>x.profId); };
-    const checa = () => {
-      const d = $("#agData").value, h = $("#agHora").value, dur = Number($("#agDur").value)||60;
-      if (!d || !h) { $("#agConf").textContent = ""; return; }
-      const ini = toMin(h), fim = ini+dur; const env = envolvidas();
-      const choque = S.ags.find(x => x.id!==a.id && x.data===d && profsDoAg(x).some(q=>env.includes(q)) && (x.status==="agendado"||x.status==="confirmado") && toMin(x.hora) < fim && toMin(x.hora)+(Number(x.duracao)||60) > ini);
-      const bq = bloqueioEm(d, ini, fim, env); m.__bq = bq;
-      $("#agConf").innerHTML = (bq ? '<span style="color:var(--warn);font-weight:600">🔒 Horário fechado: '+esc(bq.motivo||"sem atendimento")+' ('+esc(txtBloq(bq))+', '+esc(quemBloq(bq))+').</span> ' : '') + (env.length > 1 ? 'Entra na agenda de '+esc(env.map(id=>profById(id)?.nome).filter(Boolean).join(" e "))+' e o valor é dividido entre elas. ' : '') + (choque ? '<span style="color:var(--warn)">Atenção: '+esc(nomesProfs(choque))+' já tem '+esc(cliById(choque.clienteId)?.nome||"uma cliente")+' às '+esc(choque.hora)+'.</span>' : "");
-    };
-    fLista(); fSvc(); if (!ed) preVal();
-    $("#agProf").onchange = () => { fSvc(); checa(); };
-    $("#agSvc").onchange = e => { const id = e.target.value; if (id) { sel.push(id); muda(); } };
-    $("#agDom").onchange = () => { fLista(); preVal(); };
-    ["#agData","#agHora","#agDur"].forEach(s => $(s).oninput = checa); checa();
-    $("#agCli").onchange = e => { $("#novaCli").hidden = e.target.value !== "__nova"; checa(); };
-    /* escolher uma cliente que já existe */
-    const usaCli = id => { $("#agCli").value = id; $("#novaCli").hidden = true; $("#agBusca").value = ""; $("#ncAviso").innerHTML = "";
-      const c = cliById(id); $("#agAchou").innerHTML = c ? '<p class="note" style="margin:0;color:var(--ok)">✓ '+esc(c.nome)+' adicionada a este horário.</p>' : ""; checa(); };
-    const ligaUsa = el => el.querySelectorAll("[data-usa]").forEach(b => b.onclick = () => usaCli(b.dataset.usa));
-    const btnUsa = c => '<button type="button" class="btn-sm btn-primary" data-usa="'+esc(c.id)+'">Adicionar cliente</button>';
-    $("#agBusca").oninput = () => { const t = $("#agBusca").value.trim(); const el = $("#agAchou");
-      if (!t) { el.innerHTML = ""; return; }
-      const r = achaClientes(t, 5); const ehNum = digits(t).length >= 3;
-      el.innerHTML = r.length
-        ? '<p class="aviso" style="margin:0">'+(r.length === 1 ? 'Essa cliente já está cadastrada:' : 'Já cadastradas:')+'</p>'+r.map(c => linhaCli(c, btnUsa(c))).join("")
-        : '<p class="note" style="margin:0">Ninguém cadastrado com '+(ehNum?"esse número":"esse nome")+'. <button type="button" class="btn-sm" id="agCad">+ Cadastrar nova cliente</button></p>';
-      ligaUsa(el);
-      const cad = el.querySelector("#agCad"); if (cad) cad.onclick = () => { $("#agCli").value = "__nova"; $("#novaCli").hidden = false; if (ehNum) $("#ncTel").value = t; else $("#ncNome").value = t; el.innerHTML = ""; $("#agBusca").value = ""; (ehNum ? $("#ncNome") : $("#ncTel")).focus(); };
-    };
-    /* cadastrando nova: avisa se o número (ou o nome) já é de alguém */
-    const avisoNova = () => { const c = clientePorTel($("#ncTel").value) || clientePorNome($("#ncNome").value);
-      $("#ncAviso").innerHTML = c ? '<div class="aviso">⚠ '+(clientePorTel($("#ncTel").value) ? 'Esse número já é de' : 'Já existe uma cliente chamada')+' <b>'+esc(c.nome)+'</b>'+(c.telefone?' ('+esc(c.telefone)+')':'')+'.<div class="row" style="margin-top:6px">'+btnUsa(c)+'</div></div>' : "";
-      ligaUsa($("#ncAviso")); };
-    $("#ncTel").oninput = avisoNova; $("#ncNome").oninput = avisoNova;
-    $("#agX").onclick = closeModal;
-    if (ed) $("#agDel").onclick = () => confirmar("Apagar este agendamento?", "Apagar", () => run(()=>col("agendamentos").doc(a.id).delete(), "Agendamento apagado"));
-    $("#fAg").onsubmit = async e => {
-      e.preventDefault();
-      if (!sel.length) { toast("Escolha pelo menos um serviço."); return; }
-      checa(); if (m.__bq && !m.__forca) { m.__forca = true; toast("Esse horário está fechado na agenda. Se quiser marcar mesmo assim, toque em Salvar de novo."); return; }
-      let cid = $("#agCli").value;
-      if (cid === "__nova"){
-        const nome = $("#ncNome").value.trim(); if (!nome) { toast("Escreva o nome da cliente."); return; }
-        const dup = clientePorTel($("#ncTel").value); if (dup) { avisoNova(); toast("Esse número já é da "+dup.nome+". Toque em “Adicionar cliente”."); return; }
-        const ref = col("clientes").doc(); cid = ref.id;
-        const ok = await run(()=>ref.set({nome, telefone: $("#ncTel").value.trim(), obs:"", criadoEm: today()})); if (!ok) return;
-      }
-      if (!cid) { toast("Escolha a cliente."); return; }
-      const pid = $("#agProf").value; const dom = domOn();
-      const ss = sel.map(svcById).filter(Boolean);
-      const pidDom = ss.find(s => domRe().test(s.nome||""))?.profId || pid;
-      const partes = partesDe(sel, pid, dom ? taxaDom() : 0, pidDom);
-      const body = { clienteId: cid, profId: partes[0].profId, divisao: partes.length > 1 ? partes : [],
-        servicos: ss.map(s => ({id:s.id, nome:s.nome, preco: s.preco ?? null, duracao: s.duracao ?? null})),
-        servicoId: ss[0]?.id||"", servicoNome: ss.map(s=>s.nome).join(" + "),
-        domicilio: dom ? {taxa: taxaDom(), endereco: $("#dEnd").value.trim(), evento: $("#dEv").value.trim(), prontaAs: $("#dPronta").value, estilo: $("#dEst").value.trim(), pessoas: $("#dPes").value.trim(), referencia: $("#dRef").value.trim(), obs: $("#dObs").value.trim()} : null,
-        data: $("#agData").value, hora: $("#agHora").value, valor: num($("#agValor").value), duracao: Number($("#agDur").value)||null, obs: $("#agObs").value.trim() };
-      closeModal();
-      if (ed) await run(()=>col("agendamentos").doc(a.id).update(body), "Agendamento salvo");
-      else { await run(()=>col("agendamentos").doc().set({...body, status:"agendado", criadoEm: new Date().toISOString()}), "Horário marcado"); S.dia = body.data; render(); }
-    };
-  });
-}
-const toMin = h => { const [a,b] = String(h||"0:0").split(":").map(Number); return a*60+(b||0); };
-function formSinal(a){
-  const c = cliById(a.clienteId) || {}; const pagos = a.adiantamentos || []; const total = a.valor;
-  const falta = total!=null ? Math.max(0, Math.round((total - pagoAntes(a))*100)/100) : null;
-  modal('<h3>Sinal ou pagamento adiantado</h3><p class="note">'+esc(c.nome||"")+' · '+esc(a.servicoNome||"")+(total!=null?' · valor do serviço <span class="money">'+brl(total)+'</span>':'')+'</p>'+
-    (pagos.length ? '<div class="card" style="margin-bottom:12px">'+pagos.map((p,i)=>'<div class="line"><div class="grow">'+(p.tipo==="total"?"Pagamento total":"Sinal")+'<small>'+fmtCurto(p.data)+' · '+esc(p.forma)+'</small></div><span class="money pos">'+brl(p.valor)+'</span><button type="button" class="btn-ghost btn-sm" data-delp="'+i+'" aria-label="Apagar pagamento">✕</button></div>').join("")+'<p class="note" style="margin:8px 0 0">Já pago: <span class="money">'+brl(pagoAntes(a))+'</span>'+(falta!=null?' · falta <span class="money">'+brl(falta)+'</span>':'')+'</p></div>' : '')+
-    '<form class="form" id="fSin"><div class="chips" role="group" aria-label="Tipo"><button type="button" class="chip" data-tipo="sinal" aria-pressed="true">Sinal</button><button type="button" class="chip" data-tipo="total" aria-pressed="false">Pagamento total</button></div>'+
-    '<div class="two"><label class="f">Valor pago (R$)<input id="sgV" inputmode="decimal" required></label><label class="f">Dia do pagamento<input type="date" id="sgD" value="'+today()+'"></label></div>'+
-    '<label class="f">Forma de pagamento<select id="sgF">'+formas().map(f=>'<option>'+esc(f)+'</option>').join("")+'</select></label><p class="note" id="sgLiq"></p>'+
-    '<div class="foot"><button type="button" id="sgX">Voltar</button><button class="btn-primary">Registrar pagamento</button></div></form>', m => {
-    let tipo = "sinal";
-    m.querySelector("#sgX").onclick = closeModal;
-    const liq = () => { const v = num(m.querySelector("#sgV").value), f = m.querySelector("#sgF").value, d = m.querySelector("#sgD").value || today(); const el = m.querySelector("#sgLiq");
-      if (v == null) { el.textContent = ""; return; } const r = recebimento(v, f, d);
-      el.innerHTML = 'Entra no caixa <b class="money">'+brl(r.valor)+'</b> em '+esc(fmtDia(r.data))+(r.taxaValor>0?' (taxa de '+brl(r.taxaValor)+')':'')+'.'; };
-    m.querySelectorAll("[data-tipo]").forEach(b => b.onclick = () => { tipo = b.dataset.tipo; m.querySelectorAll("[data-tipo]").forEach(x=>x.setAttribute("aria-pressed", x===b)); if (tipo==="total" && falta!=null) m.querySelector("#sgV").value = String(falta).replace(".",","); liq(); });
-    ["#sgV","#sgF","#sgD"].forEach(s => { const el = m.querySelector(s); el.oninput = liq; el.onchange = liq; });
-    m.querySelectorAll("[data-delp]").forEach(b => b.onclick = () => { const i = Number(b.dataset.delp); const p = pagos[i];
-      confirmar("Apagar esse pagamento de "+brl(p.valor)+"? Ele sai do caixa.", "Apagar", async () => {
-        const docs = a.divisao?.length ? a.divisao.map(d => p.docBase+"-"+d.profId) : [p.docBase];
-        for (const d of docs) await run(()=>col("caixa").doc(d).delete());
-        await run(()=>col("agendamentos").doc(a.id).update({adiantamentos: pagos.filter((_,k)=>k!==i)}), "Pagamento apagado"); }); });
-    m.querySelector("#fSin").onsubmit = async e => { e.preventDefault();
-      const valor = num(m.querySelector("#sgV").value); if (!(valor > 0)) { toast("Informe o valor pago."); return; }
-      const forma = m.querySelector("#sgF").value, data = m.querySelector("#sgD").value || today();
-      const docBase = "adi-"+a.id+"-"+Date.now().toString(36);
-      closeModal();
-      const ok = await lancarEntrada(a, valor, forma, data, docBase, (c.nome||"Cliente")+" · "+(a.servicoNome||"")+(tipo==="total"?" (pago adiantado)":" (sinal)"), tipo==="total"?"Pagamento adiantado":"Sinal");
-      if (!ok) return;
-      await run(()=>col("agendamentos").doc(a.id).update({adiantamentos: [...pagos, {tipo, valor, forma, data, docBase}]}), tipo==="total"?"Pagamento adiantado registrado":"Sinal registrado");
-    };
-  });
-}
-function formConcluir(a){
-  const s = svcById(a.servicoId) || {}; const c = cliById(a.clienteId) || {};
-  /* lembretes de retorno de todos os serviços do horário */
-  const rets = []; svcsDoAg(a).forEach(x => { const sv = svcById(x.id); if (!sv) return;
-    if (sv.retornos?.length) sv.retornos.forEach(r => rets.push({nome:r.nome, dias:Number(r.dias), profId:r.profId||a.profId, servicoId:sv.id}));
-    else if (sv.retornoDias) rets.push({nome:sv.nome, dias:Number(sv.retornoDias), profId:sv.profId||a.profId, servicoId:sv.id}); });
-  const jaPago = pagoAntes(a); const resta = a.valor!=null ? Math.max(0, Math.round((a.valor - jaPago)*100)/100) : null;
-  modal('<h3>Concluir atendimento</h3><p class="note">'+esc(c.nome||"")+' · '+esc(a.servicoNome||s.nome||"")+'</p>'+
-    (jaPago>0 ? '<p class="note" style="color:var(--ok)">Já recebido adiantado: <span class="money">'+brl(jaPago)+'</span>. Informe abaixo só o que ela pagou hoje.</p>' : '')+'<form class="form" id="fCon">'+
-    '<div class="two"><label class="f">'+(jaPago>0?"Valor recebido hoje (R$)":"Valor recebido (R$)")+'<input id="cValor" inputmode="decimal" value="'+(resta!=null?String(jaPago>0?resta:a.valor).replace(".",","):"")+'" required></label>'+
-    '<label class="f">Forma de pagamento<select id="cForma">'+formas().map(f=>'<option>'+esc(f)+'</option>').join("")+'</select></label></div>'+
-    '<p class="note" id="cLiq"></p>'+
-    '<label class="row"><input type="checkbox" id="cCuid" checked style="width:auto"> Lembrar de mandar os cuidados amanhã</label>'+
-    (a.divisao?.length ? '<p class="note">Combo: o valor recebido é dividido no caixa assim: '+a.divisao.map(d=>esc(profById(d.profId)?.nome||"")+' '+brl(d.valor)).join(" + ")+' (proporcional, se o valor mudar).</p>' : '')+
-    (rets.length ? '<label class="row"><input type="checkbox" id="cRet" checked style="width:auto"> Criar lembretes de retorno: '+rets.map(r=>esc(r.nome)+' em '+esc(r.dias)+' dias ('+fmtCurto(addDays(a.data, r.dias))+')').join("; ")+'</label>' : '<p class="note">'+(svcsDoAg(a).length>1?"Esses serviços não têm":"Este serviço não tem")+' prazo de manutenção. Dá pra definir em Ajustes.</p>')+
-    '<div class="foot"><button type="button" id="cX">Voltar</button><button class="btn-primary">Concluir</button></div></form>', m => {
-    m.querySelector("#cX").onclick = closeModal;
-    const liq = () => { const v = num(m.querySelector("#cValor").value); const f = m.querySelector("#cForma").value; const el = m.querySelector("#cLiq");
-      if (v == null || !(taxaDe(f).pct > 0)) { el.textContent = ""; return; }
-      const r = recebimento(v, f, a.data);
-      el.innerHTML = 'Taxa de '+String(r.taxaPct).replace(".",",")+'%: '+brl(r.taxaValor)+'. Entra no caixa <b class="money">'+brl(r.valor)+'</b>'+(r.data!==a.data?' em '+esc(fmtDia(r.data)):'')+'.'; };
-    m.querySelector("#cValor").oninput = liq; m.querySelector("#cForma").onchange = liq; liq();
-    m.querySelector("#fCon").onsubmit = async e => {
-      e.preventDefault();
-      const valor = num(m.querySelector("#cValor").value); if (valor == null) { toast("Informe o valor recebido."); return; }
-      const forma = m.querySelector("#cForma").value; const querCuid = m.querySelector("#cCuid").checked; const querRet = m.querySelector("#cRet")?.checked;
-      closeModal();
-      const ok = await run(()=>col("agendamentos").doc(a.id).update({status:"concluido", pago:{valor: Math.round((valor+jaPago)*100)/100, hoje: valor, adiantado: jaPago, forma, em: today()}})); if (!ok) return;
-      const desc = (c.nome||"Cliente")+" · "+(a.servicoNome||s.nome||"")+(jaPago>0?" (restante)":"");
-      await lancarEntrada(a, valor, forma, a.data, "ag-"+a.id, desc, "Atendimento");
-      const base = {clienteId:a.clienteId, agendamentoId:a.id, profId:a.profId, servicoId:a.servicoId, servicoNome:a.servicoNome||s.nome||"", feito:false};
-      if (querCuid) await run(()=>col("acompanhamentos").doc("cuid-"+a.id).set({...base, tipo:"cuidados", data: addDays(a.data,1)}));
-      if (querRet) for (let i=0;i<rets.length;i++){ const r = rets[i]; await run(()=>col("acompanhamentos").doc(rets.length>1 ? "ret-"+a.id+"-"+i : "ret-"+a.id).set({...base, profId:r.profId, servicoId:r.servicoId, servicoNome:r.nome, tipo:"retorno", data: addDays(a.data, r.dias)})); }
-      toast("Atendimento concluído e lançado no caixa");
-      if (svcsDoAg(a).some(x => chamaProxima(x.nome||svcById(x.id)?.nome||""))) await proporProxima(a);
-    };
-  });
-}
-/* ---------- próxima visita: ao concluir, já chama a cliente pra marcar a próxima (manutenção, retorno da brow, design) ---------- */
-const janDe = () => Number(cfg().proxDe) || 20;
-const janAte = () => Number(cfg().proxAte) || 30;
-/* maquiagem, penteado e babyliss são de evento: não têm "próxima" */
-const chamaProxima = nome => { try { return !new RegExp(cfg().semProxima || "maquiagem|penteado|babyliss", "i").test(nome); } catch(e){ return true; } };
-const temHorarioFuturo = (cid, depoisDe) => S.ags.some(x => x.clienteId === cid && x.data > (depoisDe || today()) && (x.status === "agendado" || x.status === "confirmado"));
-function ctxProx(x){
-  const c = cliById(x.clienteId) || {}; const base = x.base || x.data;
-  const de = fmtCurto(addDays(base, x.de ?? janDe())), ate = fmtCurto(addDays(base, x.ate ?? janAte())); const jan = janelaTxt(x.servicoNome, de, ate);
-  return {nome: primeiroNome(c), servico: nomeMsg(x.servicoNome) || "atendimento", de, ate, janela: jan, Janela: maiuscula(jan), prof: profById(x.profId)?.nome || "", estudio: cfg().estudio, data:"", hora:"", cuidados:"", precos: precosManut(x.servicoNome, base)};
-}
-async function proporProxima(a){
-  const c = cliById(a.clienteId) || {}; if (temHorarioFuturo(a.clienteId, a.data)) return;
-  const doc = {tipo:"proxima", clienteId:a.clienteId, agendamentoId:a.id, profId:a.profId, servicoId:a.servicoId, servicoNome:a.servicoNome||"", base:a.data, de:janDe(), ate:janAte(), data:today(), feito:false, enviadas:0};
-  await run(()=>col("acompanhamentos").doc("prox-"+a.id).set(doc));
-  const msg = fill(cfg().msgs.proxima, ctxProx(doc));
-  modal('<h3>Chamar '+esc(primeiroNome(c)||"a cliente")+' pra próxima</h3><p class="note">Ela acabou de sair. É a melhor hora pra deixar a próxima marcada, entre '+esc(ctxProx(doc).de)+' e '+esc(ctxProx(doc).ate)+'. Pode ajustar o texto antes de mandar.</p>'+
-    '<textarea id="pxMsg" style="min-height:120px">'+esc(msg)+'</textarea><div class="foot"><button id="pxDepois">Depois</button>'+(waLink(c.telefone,"x") ? '<a class="btn btn-wa" id="pxWa" target="_blank" rel="noopener" href="'+esc(waLink(c.telefone, msg))+'">'+WA+'Mandar no WhatsApp</a>' : '<span class="tag">Ela está sem telefone cadastrado</span>')+'</div>'+
-    '<p class="note" style="margin-top:10px">Se não mandar agora, ela fica na aba Retornos até ter o próximo horário marcado.</p>', m => {
-    const ta = m.querySelector("#pxMsg"); const wa = m.querySelector("#pxWa");
-    if (wa){ ta.oninput = () => { wa.href = waLink(c.telefone, ta.value); }; wa.addEventListener("click", () => { closeModal(); marcarEnvioProx("prox-"+a.id, 0); }); }
-    m.querySelector("#pxDepois").onclick = closeModal;
-  });
-}
-/* depois de chamar, volta pra lista em 2 dias se ela ainda não tiver marcado */
-function marcarEnvioProx(id, enviadas){ return run(()=>col("acompanhamentos").doc(id).update({enviadoEm: today(), enviadas: (enviadas||0)+1, data: addDays(today(), 2)}), "Mensagem aberta no WhatsApp. Se ela não marcar, volta pra lista em 2 dias."); }
-
-/* ---------- CLIENTES ---------- */
-function viewClientes(v){
-  const q = S.busca.trim().toLowerCase();
-  const lista = q ? achaClientes(q, 9999) : S.clientes.slice().sort((a,b)=>a.nome.localeCompare(b.nome));
-  let html = '<div class="row search"><input class="grow" id="busca" type="search" placeholder="Buscar por nome ou telefone" value="'+esc(S.busca)+'"><button class="btn-primary" id="novaC">+ Cliente</button></div>';
-  if (!S.clientes.length) html += '<div class="empty"><b>Nenhuma cliente cadastrada</b>Cadastre aqui ou direto ao marcar um horário na Agenda.</div>';
-  else if (!lista.length) html += '<div class="empty"><b>Ninguém encontrado</b>Confira o nome ou cadastre uma cliente nova.</div>';
-  else html += '<div class="list">'+lista.map(c => { const ags = S.ags.filter(a=>a.clienteId===c.id && a.status==="concluido").sort((a,b)=>b.data.localeCompare(a.data)); return '<button class="client" data-cli="'+esc(c.id)+'"><span class="av">'+esc(iniciais(c.nome))+'</span><span class="grow"><b>'+esc(c.nome)+'</b><br><span class="tag">'+(ags[0]? "Último atendimento "+fmtCurto(ags[0].data)+" · "+esc(ags[0].servicoNome||"") : "Ainda sem atendimento")+'</span></span><span class="tag">'+ags.length+'×</span></button>'; }).join("")+'</div>';
-  v.innerHTML = html;
-  const b = v.querySelector("#busca"); b.oninput = () => { S.busca = b.value; const pos = b.selectionStart; render(); const nb = $("#busca"); nb.focus(); nb.setSelectionRange(pos,pos); };
-  v.querySelector("#novaC").onclick = () => formCliente();
-  v.querySelectorAll("[data-cli]").forEach(x => x.onclick = () => fichaCliente(x.dataset.cli));
-}
-function formCliente(c){
-  const ed = !!c; c = c || {nome:"", telefone:"", nascimento:"", obs:""};
-  modal('<h3>'+(ed?"Editar cliente":"Nova cliente")+'</h3><form class="form" id="fCli"><label class="f">Nome<input id="clNome" value="'+esc(c.nome)+'" required></label><div class="two"><label class="f">WhatsApp<input id="clTel" inputmode="tel" value="'+esc(c.telefone)+'" placeholder="(DDD) 9 0000-0000"></label><label class="f">Aniversário<input id="clNasc" type="date" value="'+esc(c.nascimento||"")+'"></label></div><div id="clAviso"></div><label class="f">Anotações (alergias, preferências, ficha)<textarea id="clObs">'+esc(c.obs||"")+'</textarea></label><div class="foot">'+(ed?'<button type="button" class="btn-danger" id="clDel">Apagar</button>':'')+'<button type="button" id="clX">Voltar</button><button class="btn-primary">Salvar</button></div></form>', m => {
-    m.querySelector("#clX").onclick = closeModal;
-    const avCli = () => { const t = m.querySelector("#clTel").value; const o = clientePorTel(t); const el = m.querySelector("#clAviso");
-      el.innerHTML = o && o.id !== c.id ? '<div class="aviso">⚠ Esse número já é de <b>'+esc(o.nome)+'</b>. <button type="button" class="btn-sm" id="clVer">Ver ficha dela</button></div>' : "";
-      const vb = el.querySelector("#clVer"); if (vb) vb.onclick = () => fichaCliente(o.id); return o && o.id !== c.id ? o : null; };
-    m.querySelector("#clTel").oninput = avCli;
-    if (ed) m.querySelector("#clDel").onclick = () => confirmar("Apagar "+c.nome+"? O histórico de horários continua no caixa.", "Apagar cliente", () => run(()=>col("clientes").doc(c.id).delete(), "Cliente apagada"));
-    m.querySelector("#fCli").onsubmit = async e => { e.preventDefault();
-      const body = {nome: m.querySelector("#clNome").value.trim(), telefone: m.querySelector("#clTel").value.trim(), nascimento: m.querySelector("#clNasc").value, obs: m.querySelector("#clObs").value.trim()};
-      if (!body.nome) return; if (avCli()) { toast("Esse número já está cadastrado."); return; } closeModal();
-      if (ed) await run(()=>col("clientes").doc(c.id).update(body), "Cliente salva");
-      else await run(()=>col("clientes").doc().set({...body, criadoEm: today()}), "Cliente cadastrada");
-    };
-  });
-}
-function fichaCliente(id){
-  const c = cliById(id); if (!c) return;
-  const ags = S.ags.filter(a=>a.clienteId===id).sort((a,b)=>(b.data+b.hora).localeCompare(a.data+a.hora));
-  const gasto = ags.filter(a=>a.status==="concluido").reduce((s,a)=>s+(a.pago?.valor||0),0);
-  const faltas = ags.filter(a=>a.status==="faltou").length;
-  const msg = "Oi, "+(c.nome.split(" ")[0])+"! ";
-  const agora = today();
-  const futuros = ags.filter(a => a.data >= agora && (a.status==="agendado"||a.status==="confirmado")).reverse();
-  const passados = ags.filter(a => !futuros.includes(a));
-  const linhaHist = a => '<div class="line"><div class="grow"><b>'+esc(a.servicoNome||"")+'</b><small>'+fmtCurto(a.data)+' às '+esc(a.hora)+' · '+esc(nomesProfs(a)||profById(a.profId)?.nome||"")+(a.status==="concluido" && a.pago?.valor!=null ? ' · '+brl(a.pago.valor)+(a.pago.forma?' ('+esc(a.pago.forma)+')':'') : (a.valor!=null?' · '+brl(a.valor):''))+'</small>'+
-    (a.domicilio ? '<small>🏠 Domiciliar'+(a.domicilio.evento?' · '+esc(a.domicilio.evento):'')+(a.domicilio.estilo?' · '+esc(a.domicilio.estilo):'')+'</small>' : '')+
-    (a.obs ? '<small style="color:var(--ink)">📝 '+esc(a.obs)+'</small>' : '')+'</div><span class="pill st-'+a.status+'">'+ST[a.status]+'</span></div>';
-  modal('<h3>'+esc(c.nome)+'</h3><div class="row" style="margin-bottom:10px">'+waBtn(c.telefone, msg, "Abrir conversa", " ")+'<span class="wa-num">'+esc(c.telefone||"")+'</span></div>'+
-    '<div class="kpis" style="margin-bottom:12px"><div class="kpi"><span>Atendimentos</span><b>'+ags.filter(a=>a.status==="concluido").length+'</b></div><div class="kpi"><span>Total gasto</span><b>'+brl(gasto)+'</b></div><div class="kpi"><span>Faltas</span><b>'+faltas+'</b></div></div>'+
-    (c.nascimento?'<p class="note">Aniversário: '+fmtCurto(c.nascimento)+'</p>':'')+
-    '<h2 class="sec">Observações da cliente</h2>'+(c.obs?'<div class="card" style="white-space:pre-wrap;margin-bottom:10px">'+esc(c.obs)+'</div>':'<p class="note">Nenhuma anotação ainda. Toque em “Editar dados” pra escrever alergias, preferências e o que for importante.</p>')+
-    (futuros.length ? '<h2 class="sec">Próximos horários</h2><div class="hist">'+futuros.map(linhaHist).join("")+'</div>' : '')+
-    '<h2 class="sec">Histórico no estúdio</h2>'+(passados.length? '<div class="hist">'+passados.map(linhaHist).join("")+'</div>' : '<p class="note">Nenhum atendimento ainda.</p>')+
-    '<div class="foot"><button id="fcEd">Editar dados</button><button id="fcX">Fechar</button><button class="btn-primary" id="fcAg">Marcar horário</button></div>', m => {
-    m.querySelector("#fcX").onclick = closeModal;
-    m.querySelector("#fcEd").onclick = () => formCliente(c);
-    m.querySelector("#fcAg").onclick = () => { S.tab = "agenda"; render(); formAg(null, c.id); };
-  });
-}
-
-/* ---------- RETORNOS ---------- */
-/* manutenção e "próxima" somem sozinhas quando a cliente já tem horário marcado depois do atendimento */
-const acompValido = a => !((a.tipo === "retorno" || a.tipo === "proxima") && temHorarioFuturo(a.clienteId, a.tipo === "proxima" ? (a.base||a.data) : today()));
-function viewRetornos(v){
-  const hoje = today();
-  const doProf = a => S.prof === "todas" || a.profId === S.prof;
-  const abertos = S.acomp.filter(a => !a.feito && doProf(a) && acompValido(a)).sort((a,b)=>a.data.localeCompare(b.data));
-  const vencidos = abertos.filter(a=>a.data <= hoje), proximos = abertos.filter(a=>a.data > hoje && a.data <= addDays(hoje,14));
-  // clientes sumidas: último atendimento há mais de N dias (Ajustes) e sem horário futuro
-  const nSum = Number(cfg().diasSumida) || 45;
-  const sumidas = S.clientes.map(c => { const at = S.ags.filter(a=>a.clienteId===c.id && a.status==="concluido" && agDaProf(a, S.prof)).sort((a,b)=>b.data.localeCompare(a.data)); const fut = S.ags.some(a=>a.clienteId===c.id && a.data>=hoje && (a.status==="agendado"||a.status==="confirmado")); return {c, ult: at[0], fut}; }).filter(x => x.ult && !x.fut && x.ult.data < addDays(hoje,-nSum)).sort((a,b)=>a.ult.data.localeCompare(b.ult.data)).slice(0,20);
-  const item = a => { if (a.tipo === "proxima") return itemProx(a); const c = cliById(a.clienteId) || {}; const p = profById(a.profId)||{}; const tpl = a.tipo==="cuidados" ? cfg().msgs.cuidados : cfg().msgs.retorno; const s = svcById(a.servicoId)||{};
-    const msg = fill(tpl, {nome:(c.nome||"").split(" ")[0], servico:nomeMsg(a.servicoNome||s.nome), prof:p.nome||"", estudio:cfg().estudio, cuidados:s.cuidados||"", data:"", hora:"", precos: precosManut(a.servicoNome||s.nome, S.ags.find(x=>x.id===a.agendamentoId)?.data || (a.tipo==="retorno" && s.retornoDias ? addDays(a.data, -Number(s.retornoDias)) : null))});
-    return '<div class="due'+(a.data<hoje?" late":"")+'"><div class="row"><b class="grow">'+esc(c.nome||"Cliente removida")+'</b><span class="tag">'+(a.data<hoje? "desde "+fmtCurto(a.data) : a.data===hoje? "hoje" : fmtCurto(a.data))+'</span></div><div class="tag">'+(a.tipo==="cuidados"?"Mandar cuidados pós-atendimento":"Chamar pra manutenção")+' · '+esc(a.servicoNome||"")+(p.nome?" · "+esc(p.nome):"")+'</div><div class="acts row">'+waBtn(c.telefone, msg, a.tipo==="cuidados"?"Mandar cuidados":"Chamar no WhatsApp")+'<button class="btn-sm" data-ok="'+esc(a.id)+'">Feito</button>'+(a.tipo==="retorno"?'<button class="btn-sm" data-marcar="'+esc(a.clienteId)+'">Marcar horário</button>':'')+'</div></div>'; };
-  let html = profChips();
-  const itemProx = a => { const c = cliById(a.clienteId) || {}; const p = profById(a.profId)||{}; const ctx = ctxProx(a);
-    const tpl = a.enviadas ? cfg().msgs.proxima2 : cfg().msgs.proxima;
-    return '<div class="due'+(a.enviadas?" late":"")+'"><div class="row"><b class="grow">'+esc(c.nome||"Cliente removida")+'</b><span class="tag">próxima entre '+esc(ctx.de)+' e '+esc(ctx.ate)+'</span></div><div class="tag">'+(a.enviadas ? 'Chamada '+(a.enviadas>1?a.enviadas+" vezes":"em "+fmtCurto(a.enviadoEm))+' e ainda sem horário marcado' : 'Ainda não foi chamada pra marcar a próxima')+' · '+esc(a.servicoNome||"")+(p.nome?" · "+esc(p.nome):"")+'</div><div class="acts row">'+waBtn(c.telefone, fill(tpl, ctx), a.enviadas ? "Chamar de novo" : "Chamar pra próxima", "btn-sm", 'data-px="'+esc(a.id)+'" data-pxn="'+(a.enviadas||0)+'"')+'<button class="btn-sm" data-marcar="'+esc(a.clienteId)+'">Marcar horário</button><button class="btn-sm btn-ghost" data-ok="'+esc(a.id)+'">Não vai voltar</button></div></div>'; };
-  html += '<h2 class="sec">Para hoje</h2>' + (vencidos.length ? '<div class="list">'+vencidos.map(item).join("")+'</div>' : '<div class="empty"><b>Tudo em dia</b>Quando um atendimento é concluído, o lembrete dos cuidados e da manutenção aparece aqui.</div>');
-  if (proximos.length) html += '<h2 class="sec">Próximos 14 dias</h2><div class="list">'+proximos.map(item).join("")+'</div>';
-  if (sumidas.length) html += '<h2 class="sec">Sumidas há mais de '+nSum+' dias</h2><div class="list">'+sumidas.map(x => '<div class="due"><div class="row"><b class="grow">'+esc(x.c.nome)+'</b><span class="tag">último: '+fmtCurto(x.ult.data)+'</span></div><div class="tag">'+esc(x.ult.servicoNome||"")+'</div><div class="row">'+waBtn(x.c.telefone, "Oi, "+x.c.nome.split(" ")[0]+"! Saudade de você por aqui. Quer marcar um horário?", "Chamar")+'<button class="btn-sm" data-marcar="'+esc(x.c.id)+'">Marcar horário</button></div></div>').join("")+'</div>';
-  v.innerHTML = html;
-  bindProfChips(v);
-  v.querySelectorAll("[data-ok]").forEach(b => b.onclick = () => run(()=>col("acompanhamentos").doc(b.dataset.ok).update({feito:true, feitoEm: today()}), "Marcado como feito"));
-  v.querySelectorAll("[data-px]").forEach(b => b.addEventListener("click", () => marcarEnvioProx(b.dataset.px, Number(b.dataset.pxn))));
-  v.querySelectorAll("[data-marcar]").forEach(b => b.onclick = () => { S.tab="agenda"; render(); formAg(null, b.dataset.marcar); });
-}
-
-/* ---------- CAIXA ---------- */
-function viewCaixa(v){
-  const [y,mm] = S.mes.split("-").map(Number);
-  const doProf = l => S.prof === "todas" || l.profId === S.prof || (l.tipo==="saida" && !l.profId);
-  const ls = S.caixa.filter(l => l.data.slice(0,7) === S.mes && doProf(l)).sort((a,b)=>b.data.localeCompare(a.data));
-  const ent = ls.filter(l=>l.tipo==="entrada").reduce((s,l)=>s+l.valor,0), sai = ls.filter(l=>l.tipo==="saida").reduce((s,l)=>s+l.valor,0);
-  const porProf = cfg().profissionais.map(p => ({p, v: ls.filter(l=>l.tipo==="entrada" && l.profId===p.id).reduce((s,l)=>s+l.valor,0)}));
-  const porForma = {}; ls.filter(l=>l.tipo==="entrada").forEach(l => porForma[l.forma||"Outro"] = (porForma[l.forma||"Outro"]||0)+l.valor);
-  const maxP = Math.max(1, ...porProf.map(x=>x.v));
-  let html = '<div class="datebar"><button class="btn-sm" data-m="-1" aria-label="Mês anterior">‹</button><div class="label">'+MES[mm-1]+' de '+y+'</div><button class="btn-sm" data-m="1" aria-label="Próximo mês">›</button></div>' + profChips();
-  html += '<div class="kpis"><div class="kpi"><span>Entradas</span><b class="pos">'+brl(ent)+'</b></div><div class="kpi"><span>Saídas</span><b class="neg">'+brl(sai)+'</b></div><div class="kpi"><span>Saldo</span><b>'+brl(ent-sai)+'</b></div></div>';
-  const resMes = S.reservas.filter(r => r.data.slice(0,7) === S.mes && (S.prof==="todas" || r.profId===S.prof)).reduce((s,r)=>s+(Number(r.valor)||0),0);
-  const resTot = S.reservas.filter(r => S.prof==="todas" || r.profId===S.prof).reduce((s,r)=>s+(Number(r.valor)||0),0);
-  html += '<h2 class="sec">Reserva do studio · '+resPct()+'% pra investir na empresa</h2><div class="kpis" style="grid-template-columns:1fr 1fr"><div class="kpi"><span>Neste mês</span><b>'+brl(resMes)+'</b></div><div class="kpi"><span>Acumulado</span><b style="color:var(--accent)">'+brl(resTot)+'</b></div></div>';
-  html += '<div class="row" style="margin-top:12px"><button class="btn-primary grow" data-lanc="entrada" style="justify-content:center">+ Entrada</button><button class="grow" data-lanc="saida" style="justify-content:center">+ Saída</button></div>';
-  if (porProf.length > 1 && S.prof==="todas") html += '<h2 class="sec">Por profissional</h2><div class="card">'+porProf.map(x=>'<div style="margin-bottom:10px"><div class="row"><span class="grow">'+esc(x.p.nome)+'</span><span class="money">'+brl(x.v)+'</span></div><div class="bar" style="--c:'+esc(x.p.cor)+'"><i style="width:'+(x.v/maxP*100)+'%"></i></div></div>').join("")+'</div>';
-  if (Object.keys(porForma).length) html += '<h2 class="sec">Por forma de pagamento</h2><div class="card">'+Object.entries(porForma).sort((a,b)=>b[1]-a[1]).map(([k,val])=>'<div class="line"><span class="grow">'+esc(k)+'</span><span class="money">'+brl(val)+'</span></div>').join("")+'</div>';
-  html += '<h2 class="sec">Lançamentos</h2>' + (ls.length ? '<div class="card">'+ls.map(l=>'<div class="line"><div class="grow" data-edl="'+esc(l.id)+'" style="cursor:pointer" title="Toque pra editar">'+esc(l.descricao||l.categoria||"")+'<small>'+fmtCurto(l.data)+' · '+esc(l.categoria||"")+(l.forma?" · "+esc(l.forma):"")+(l.taxaValor>0?' · cobrado '+brl(l.bruto)+', taxa '+brl(l.taxaValor):"")+(l.dataAtendimento && l.dataAtendimento!==l.data?' · atendido '+fmtCurto(l.dataAtendimento):"")+(profById(l.profId)?" · "+esc(profById(l.profId).nome):"")+'</small></div><span class="money '+(l.tipo==="entrada"?"pos":"neg")+'">'+(l.tipo==="entrada"?"+":"−")+brl(l.valor)+'</span><button class="btn-ghost btn-sm" data-del="'+esc(l.id)+'" aria-label="Apagar lançamento">✕</button></div>').join("")+'</div>' : '<div class="empty"><b>Nada lançado neste mês</b>Os atendimentos concluídos entram aqui sozinhos. Despesas como material e aluguel você lança em “+ Saída”.</div>');
-  v.innerHTML = html;
-  bindProfChips(v);
-  v.querySelectorAll("[data-m]").forEach(b => b.onclick = () => { const d = new Date(y, mm-1+Number(b.dataset.m), 1); S.mes = d.getFullYear()+"-"+pad(d.getMonth()+1); render(); });
-  v.querySelectorAll("[data-lanc]").forEach(b => b.onclick = () => formLanc(b.dataset.lanc));
-  v.querySelectorAll("[data-edl]").forEach(b => b.onclick = () => { const l = S.caixa.find(x=>x.id===b.dataset.edl); if (l) formLanc(l.tipo, l); });
-  v.querySelectorAll("[data-del]").forEach(b => b.onclick = () => confirmar("Apagar este lançamento?", "Apagar", () => run(()=>col("caixa").doc(b.dataset.del).delete(), "Lançamento apagado")));
-}
-function formLanc(tipo, l){
-  const ed = !!l; l = l ? {...l, valor: l.bruto ?? l.valor, data: l.dataAtendimento || l.data} : {valor:null, data:today(), categoria:"", profId: S.prof!=="todas"? S.prof : "", forma:"", descricao:""};
-  const opts = (arr, sel) => { const a = arr.slice(); if (sel && !a.includes(sel)) a.push(sel); return a.map(c=>'<option'+(c===sel?" selected":"")+'>'+esc(c)+'</option>').join(""); };
-  const cats = tipo==="entrada" ? catsEntrada() : catsSaida();
-  modal('<h3>'+(ed?"Editar lançamento":tipo==="entrada"?"Nova entrada":"Nova saída")+'</h3><form class="form" id="fL"><div class="two"><label class="f">Valor (R$)<input id="lV" inputmode="decimal" required value="'+(l.valor!=null?String(l.valor).replace(".",","):"")+'"></label><label class="f">Dia<input type="date" id="lD" value="'+esc(l.data)+'"></label></div><div class="two"><label class="f">Categoria<select id="lC">'+opts(cats, l.categoria)+'</select></label><label class="f">Profissional<select id="lP"><option value="">Estúdio (as duas)</option>'+cfg().profissionais.map(p=>'<option value="'+esc(p.id)+'"'+(l.profId===p.id?" selected":"")+'>'+esc(p.nome)+'</option>').join("")+'</select></label></div>'+(tipo==="entrada"?'<label class="f">Forma<select id="lF">'+opts(formas(), l.forma)+'</select></label>':'')+(tipo==="entrada"?'<p class="note" id="lLiq"></p>':'')+'<label class="f">Descrição<input id="lDesc" value="'+esc(l.descricao||"")+'" placeholder="'+(tipo==="entrada"?"ex.: venda de sérum":"ex.: cola e fios")+'"></label><div class="foot">'+(ed?'<button type="button" class="btn-danger" id="lDel">Apagar</button>':'')+'<button type="button" id="lX">Voltar</button><button class="btn-primary">'+(ed?"Salvar":"Lançar")+'</button></div></form>', m => {
-    m.querySelector("#lX").onclick = closeModal;
-    if (ed) m.querySelector("#lDel").onclick = () => confirmar("Apagar este lançamento?", "Apagar", () => run(()=>col("caixa").doc(l.id).delete(), "Lançamento apagado"));
-    const liq = () => { const el = m.querySelector("#lLiq"); if (!el) return; const v = num(m.querySelector("#lV").value), f = m.querySelector("#lF").value, d = m.querySelector("#lD").value || today();
-      if (v == null || !(taxaDe(f).pct > 0)) { el.textContent = ""; return; } const r = recebimento(v, f, d);
-      el.innerHTML = 'Taxa de '+String(r.taxaPct).replace(".",",")+'%: '+brl(r.taxaValor)+'. Entra no caixa <b class="money">'+brl(r.valor)+'</b>'+(r.data!==d?' em '+esc(fmtDia(r.data)):'')+'.'; };
-    ["#lV","#lF","#lD"].forEach(s => { const el = m.querySelector(s); if (el){ el.oninput = liq; el.onchange = liq; } }); liq();
-    m.querySelector("#fL").onsubmit = async e => { e.preventDefault(); const valor = num(m.querySelector("#lV").value); if (valor==null) { toast("Informe o valor."); return; }
-      const forma = m.querySelector("#lF")?.value || ""; const dAt = m.querySelector("#lD").value || today();
-      const base = tipo==="entrada" ? recebimento(valor, forma, dAt) : {valor, data: dAt};
-      const body = {tipo, ...base, categoria: m.querySelector("#lC").value, profId: m.querySelector("#lP").value, descricao: m.querySelector("#lDesc").value.trim(), forma};
-      closeModal();
-      if (ed) await run(()=>col("caixa").doc(l.id).update(body), "Lançamento salvo");
-      else await run(()=>col("caixa").doc().set(body), tipo==="entrada"?"Entrada lançada":"Saída lançada"); };
-  });
-}
-
-/* ---------- AJUSTES ---------- */
-const MSGS = [["confirmacao","Confirmar horário (24h a 12h antes)"],["lembrete","Lembrete pra quem já confirmou"],["cuidados","Cuidados pós-atendimento"],["proxima","Chamar pra próxima (logo ao concluir)"],["proxima2","Chamar pra próxima de novo (quem não respondeu)"],["retorno","Chamar pra manutenção"]];
-function viewAjustes(v){
-  const c = cfg();
-  let html = '<h2 class="sec">Estúdio</h2><div class="card form"><label class="f">Nome do estúdio<input id="aNome" value="'+esc(c.estudio)+'"></label><button class="btn-primary" id="aSalvaNome" style="justify-self:start">Salvar nome</button></div>';
-  html += '<h2 class="sec">Profissionais</h2><div class="card">'+(c.profissionais.length? c.profissionais.map(p=>'<div class="line"><span class="sw" style="background:'+esc(p.cor)+'"></span><div class="grow">'+esc(p.nome)+'<small>'+esc(p.area||"")+'</small></div><button class="btn-sm" data-pe="'+esc(p.id)+'">Editar</button></div>').join("") : '<p class="note">Cadastre quem atende no estúdio.</p>')+'<button style="margin-top:10px" id="aNovaP">+ Profissional</button></div>';
-  html += '<h2 class="sec">Serviços e preços</h2><div class="card">'+(c.servicos.length? c.servicos.map(s=>'<div class="svc"><div style="min-width:0"><b>'+esc(s.nome)+'</b><div class="tag">'+(s.divisao?.length ? 'Combo · '+s.divisao.map(d=>esc(profById(d.profId)?.nome||"")+' '+brl(d.valor)).join(" + ") : esc(profById(s.profId)?.nome||"Qualquer profissional"))+(s.duracao?" · "+esc(s.duracao)+" min":"")+(s.retornoDias?" · manutenção em "+esc(s.retornoDias)+" dias":"")+'</div></div><div style="text-align:right"><span class="money">'+(s.preco!=null? brl(s.preco) : '<span style="color:var(--warn)">sem preço</span>')+'</span><br><button class="btn-sm btn-ghost" data-se="'+esc(s.id)+'">Editar</button></div></div>').join("") : '<p class="note">Cadastre os serviços com preço, duração e prazo de manutenção.</p>')+'<button style="margin-top:10px" id="aNovoS">+ Serviço</button></div>';
-  html += '<h2 class="sec">Mensagens do WhatsApp</h2><div class="card form"><p class="note">Use <span class="ph">{nome}</span> <span class="ph">{servico}</span> <span class="ph">{data}</span> <span class="ph">{hora}</span> <span class="ph">{prof}</span> <span class="ph">{estudio}</span> <span class="ph">{cuidados}</span>. <span class="ph">{quando}</span> (hoje, amanhã ou o dia). Na “próxima”, também <span class="ph">{de}</span> e <span class="ph">{ate}</span> (as datas da janela) e <span class="ph">{janela}</span> (a frase da janela; nos cílios vira “já deixa sua manutenção garantida:”). <span class="ph">{precos}</span> põe as datas e os valores da manutenção dos cílios daquele tipo (até o dia X paga o valor de 20 dias; do dia Y ao dia Z, o de 30), contados do dia do atendimento. Em serviço sem manutenção, a linha some. O app troca pelos dados da cliente.</p>'+
-    MSGS.map(([k,l])=>'<label class="f">'+l+'<textarea id="msg_'+k+'">'+esc(c.msgs?.[k]||DEFAULT_CFG.msgs[k])+'</textarea></label>').join("")+
-    '<div class="two"><label class="f">Próxima visita: a partir de quantos dias?<input id="aPxDe" inputmode="numeric" value="'+esc(janDe())+'"></label><label class="f">Até quantos dias?<input id="aPxAte" inputmode="numeric" value="'+esc(janAte())+'"></label></div>'+
-    '<label class="f">Serviços que NÃO chamam pra próxima (separe com |)<input id="aSemPx" value="'+esc(c.semProxima||"maquiagem|penteado|babyliss")+'"></label>'+
-    '<div class="two"><label class="f">Taxa do atendimento domiciliar (R$)<input id="aTxDom" inputmode="decimal" value="'+esc(String(taxaDom()).replace(".",","))+'"></label><label class="f">Serviços que podem ser domiciliar (separe com |)<input id="aDomSv" value="'+esc(c.domicilioServicos||"maquiagem|penteado|babyliss")+'"></label></div>'+
-    '<button class="btn-primary" id="aSalvaMsg" style="justify-self:start">Salvar mensagens</button></div>';
-  html += '<h2 class="sec">Caixa e retornos</h2><div class="card form"><p class="note">Um item por linha.</p><label class="f">Formas de pagamento<textarea id="aFormas">'+esc(formas().join("\n"))+'</textarea></label><div class="two"><label class="f">Categorias de entrada<textarea id="aCatE">'+esc(catsEntrada().join("\n"))+'</textarea></label><label class="f">Categorias de saída<textarea id="aCatS">'+esc(catsSaida().join("\n"))+'</textarea></label></div><label class="f">Considerar cliente sumida depois de quantos dias sem vir?<input id="aSum" inputmode="numeric" value="'+esc(c.diasSumida||45)+'"></label><div class="two"><label class="f">Reserva do studio (% do faturamento do dia)<input id="aResPct" inputmode="decimal" value="'+esc(String(resPct()).replace(".",","))+'"></label><label class="f">Horário do fechamento do dia<input id="aResHora" type="time" value="'+esc(resHora())+'"></label></div><p class="note" style="margin:6px 0 0">Taxa de cada forma de pagamento. O caixa lança o valor já descontado.</p>'+formas().map((f,i)=>{ const t = taxaDe(f); return '<div class="two" style="align-items:end"><label class="f">'+esc(f)+' (taxa %)<input data-tx="'+i+'" inputmode="decimal" value="'+esc(String(t.pct||0).replace(".",","))+'"></label><label class="row" style="padding-bottom:10px"><input type="checkbox" data-tdu="'+i+'" style="width:auto"'+(t.proxDiaUtil?" checked":"")+'> Cai no próximo dia útil</label></div>'; }).join("")+'<button class="btn-primary" id="aSalvaCx" style="justify-self:start">Salvar</button></div>';
-  html += window.__DEMO
-    ? '<h2 class="sec">Demonstração</h2><div class="card form"><p class="note" style="margin:0">Esta é a versão de teste. Tudo fica salvo só neste aparelho. Na versão oficial, você entra com e-mail e senha e a agenda aparece igual no celular e no computador.</p><div class="row"><button id="aCopia">Baixar cópia dos dados</button><button class="btn-danger" id="aSair">Apagar tudo e voltar ao exemplo</button></div></div>'
-    : '<h2 class="sec">Conta e cópia dos dados</h2><div class="card form"><p class="note" style="margin:0">Entrou como <b>'+esc(S.user?.email||"")+'</b>.</p><div class="row"><button id="aCopia">Baixar cópia dos dados</button><button class="btn-danger" id="aSair">Sair da conta</button></div><p class="note" style="margin:0">Guarde uma cópia de vez em quando, no celular ou no Google Drive. O plano gratuito não faz backup sozinho.</p></div>';
-  v.innerHTML = html;
-  v.querySelector("#aCopia").onclick = baixarCopia;
-  v.querySelector("#aSair").onclick = () => window.__DEMO ? confirmar("Apagar tudo o que foi marcado e voltar ao exemplo?", "Apagar", () => window.__demoReset()) : confirmar("Sair da conta neste aparelho?", "Sair", async () => { await window.__sair(); });
-  const linhas = id => v.querySelector(id).value.split("\n").map(x=>x.trim()).filter(Boolean);
-  v.querySelector("#aSalvaCx").onclick = () => saveCfg({taxas: Object.fromEntries(formas().map((f,i)=>[f,{pct: num(v.querySelector('[data-tx="'+i+'"]').value)||0, proxDiaUtil: v.querySelector('[data-tdu="'+i+'"]').checked}])), formas: linhas("#aFormas"), catEntrada: linhas("#aCatE"), catSaida: linhas("#aCatS"), diasSumida: Number(v.querySelector("#aSum").value)||45, reservaPct: num(v.querySelector("#aResPct").value) ?? 10, reservaHora: v.querySelector("#aResHora").value || "22:00", reservaInicio: resInicio()}, "Ajustes salvos");
-  v.querySelector("#aSalvaNome").onclick = () => saveCfg({estudio: v.querySelector("#aNome").value.trim() || "Estúdio"}, "Nome salvo");
-  v.querySelector("#aSalvaMsg").onclick = () => { const msgs = {}; MSGS.forEach(([k])=>msgs[k]=v.querySelector("#msg_"+k).value); const de = Number(v.querySelector("#aPxDe").value)||20, ate = Math.max(de, Number(v.querySelector("#aPxAte").value)||30); saveCfg({msgs, proxDe: de, proxAte: ate, semProxima: v.querySelector("#aSemPx").value.trim() || "maquiagem|penteado|babyliss", taxaDomicilio: num(v.querySelector("#aTxDom").value) ?? 30, domicilioServicos: v.querySelector("#aDomSv").value.trim() || "maquiagem|penteado|babyliss"}, "Mensagens salvas"); };
-  v.querySelector("#aNovaP").onclick = () => formProf();
-  v.querySelectorAll("[data-pe]").forEach(b => b.onclick = () => formProf(profById(b.dataset.pe)));
-  v.querySelector("#aNovoS").onclick = () => formSvc();
-  v.querySelectorAll("[data-se]").forEach(b => b.onclick = () => formSvc(svcById(b.dataset.se)));
-}
-async function saveCfg(patch, msg){
-  const novo = {...DEFAULT_CFG, ...cfg(), ...patch};
-  return run(()=>S.db.doc("config/geral").set(JSON.parse(JSON.stringify(novo))), msg);
-}
-const CORES = ["#B0843A","#9A5B6B","#5E7A55","#5B6E8F","#A0623A","#7A5C8E"];
-function formProf(p){
-  const ed = !!p; p = p || {id:"p"+Date.now().toString(36), nome:"", area:"", cor: CORES[cfg().profissionais.length % CORES.length]};
-  modal('<h3>'+(ed?"Editar profissional":"Nova profissional")+'</h3><form class="form" id="fP"><label class="f">Nome<input id="pN" value="'+esc(p.nome)+'" required></label><label class="f">Área<input id="pA" value="'+esc(p.area)+'" placeholder="ex.: Sobrancelha e maquiagem"></label><label class="f">Cor na agenda<div class="row">'+CORES.map(c=>'<label class="row" style="gap:4px"><input type="radio" name="pC" value="'+c+'"'+(c===p.cor?" checked":"")+' style="width:auto"><span class="sw" style="background:'+c+';width:18px;height:18px"></span></label>').join("")+'</div></label><div class="foot">'+(ed?'<button type="button" class="btn-danger" id="pDel">Remover</button>':'')+'<button type="button" id="pX">Voltar</button><button class="btn-primary">Salvar</button></div></form>', m => {
-    m.querySelector("#pX").onclick = closeModal;
-    if (ed) m.querySelector("#pDel").onclick = () => confirmar("Remover "+p.nome+"? Os horários antigos continuam salvos.", "Remover", () => saveCfg({profissionais: cfg().profissionais.filter(x=>x.id!==p.id)}, "Profissional removida"));
-    m.querySelector("#fP").onsubmit = e => { e.preventDefault(); const n = {...p, nome: m.querySelector("#pN").value.trim(), area: m.querySelector("#pA").value.trim(), cor: (m.querySelector('input[name="pC"]:checked')||{}).value || p.cor};
-      const lista = ed ? cfg().profissionais.map(x=>x.id===p.id?n:x) : [...cfg().profissionais, n]; closeModal(); saveCfg({profissionais: lista}, "Profissional salva"); };
-  });
-}
-function formSvc(s){
-  const ed = !!s; s = s || {id:"s"+Date.now().toString(36), nome:"", profId: cfg().profissionais[0]?.id||"", preco:null, duracao:null, retornoDias:null, cuidados:""};
-  const ps = cfg().profissionais; const combo = !!(s.divisao && s.divisao.length);
-  const parteDe = pid => (s.divisao||[]).find(d=>d.profId===pid);
-  const rets = (s.retornos||[]).slice(); while (rets.length < 3) rets.push({nome:"", dias:"", profId:""});
-  const real = v => v!=null && v!=="" ? String(v).replace(".",",") : "";
-  modal('<h3>'+(ed?"Editar serviço":"Novo serviço")+'</h3><form class="form" id="fS"><label class="f">Nome do serviço<input id="sN" value="'+esc(s.nome)+'" required placeholder="ex.: Design de sobrancelha"></label>'+
-    '<label class="row"><input type="checkbox" id="sCombo" style="width:auto"'+(combo?" checked":"")+'> É um combo feito por mais de uma profissional</label>'+
-    '<div id="sSolo"'+(combo?" hidden":"")+'><label class="f">Quem faz<select id="sP"><option value="">Qualquer profissional</option>'+ps.map(p=>'<option value="'+esc(p.id)+'"'+(p.id===s.profId?" selected":"")+'>'+esc(p.nome)+'</option>').join("")+'</select></label></div>'+
-    '<div id="sComboBox" class="form"'+(combo?"":" hidden")+'><p class="note">Quanto fica pra cada uma (deixe vazio quem não participa). O preço do combo é a soma.</p><div class="two">'+ps.map(p=>'<label class="f">'+esc(p.nome)+' (R$)<input data-parte="'+esc(p.id)+'" inputmode="decimal" value="'+real(parteDe(p.id)?.valor)+'"></label>').join("")+'</div>'+
-      '<p class="note">Lembretes de retorno do combo (nome, em quantos dias, de quem):</p>'+rets.map((r,i)=>'<div class="two"><input data-rn="'+i+'" placeholder="ex.: Manutenção Megafox" value="'+esc(r.nome||"")+'"><div class="row" style="flex-wrap:nowrap"><input data-rd="'+i+'" inputmode="numeric" placeholder="dias" style="max-width:80px" value="'+esc(r.dias||"")+'"><select data-rp="'+i+'">'+ps.map(p=>'<option value="'+esc(p.id)+'"'+(p.id===r.profId?" selected":"")+'>'+esc(p.nome)+'</option>').join("")+'</select></div></div>').join("")+'</div>'+
-    '<div class="two"><label class="f">Preço (R$)<input id="sV" inputmode="decimal" value="'+real(s.preco)+'"'+(combo?" readonly":"")+'></label><label class="f">Duração (min)<input id="sD" inputmode="numeric" value="'+esc(s.duracao||"")+'"></label></div>'+
-    '<label class="f" id="sRbox"'+(combo?" hidden":"")+'>Manutenção depois de quantos dias? (vazio = não tem)<input id="sR" inputmode="numeric" value="'+esc(s.retornoDias||"")+'"></label><label class="f">Cuidados pós-atendimento (vão na mensagem)<textarea id="sC" placeholder="ex.: não molhar nas primeiras 24 horas">'+esc(s.cuidados||"")+'</textarea></label><div class="foot">'+(ed?'<button type="button" class="btn-danger" id="sDel">Remover</button>':'')+'<button type="button" id="sX">Voltar</button><button class="btn-primary">Salvar</button></div></form>', m => {
-    const ehCombo = () => m.querySelector("#sCombo").checked;
-    const soma = () => [...m.querySelectorAll("[data-parte]")].reduce((t,i)=>t+(num(i.value)||0),0);
-    const sync = () => { const c = ehCombo(); m.querySelector("#sSolo").hidden = c; m.querySelector("#sComboBox").hidden = !c; m.querySelector("#sRbox").hidden = c; m.querySelector("#sV").readOnly = c; if (c) m.querySelector("#sV").value = real(soma()); };
-    m.querySelector("#sCombo").onchange = sync; m.querySelectorAll("[data-parte]").forEach(i => i.oninput = sync);
-    m.querySelector("#sX").onclick = closeModal;
-    if (ed) m.querySelector("#sDel").onclick = () => confirmar("Remover o serviço "+s.nome+"?", "Remover", () => saveCfg({servicos: cfg().servicos.filter(x=>x.id!==s.id)}, "Serviço removido"));
-    m.querySelector("#fS").onsubmit = e => { e.preventDefault();
-      const c = ehCombo();
-      const divisao = c ? [...m.querySelectorAll("[data-parte]")].map(i=>({profId:i.dataset.parte, valor:num(i.value)})).filter(d=>d.valor!=null) : [];
-      if (c && divisao.length < 2) { toast("No combo, informe o valor de pelo menos duas profissionais."); return; }
-      const retornos = c ? [0,1,2].map(i=>({nome:m.querySelector('[data-rn="'+i+'"]').value.trim(), dias:Number(m.querySelector('[data-rd="'+i+'"]').value)||0, profId:m.querySelector('[data-rp="'+i+'"]').value})).filter(r=>r.nome && r.dias) : [];
-      const n = {...s, nome: m.querySelector("#sN").value.trim(), profId: c ? "" : m.querySelector("#sP").value, preco: c ? divisao.reduce((t,d)=>t+d.valor,0) : num(m.querySelector("#sV").value), duracao: Number(m.querySelector("#sD").value)||null, retornoDias: c ? null : (Number(m.querySelector("#sR").value)||null), cuidados: m.querySelector("#sC").value.trim(), divisao, retornos};
-      const lista = ed ? cfg().servicos.map(x=>x.id===s.id?n:x) : [...cfg().servicos, n]; closeModal(); saveCfg({servicos: lista}, "Serviço salvo"); };
-  });
-}
-
-/* ---------- conexão com o banco (Firebase: login por e-mail e senha + Firestore) ---------- */
-const FIREBASE_CONFIG = {}; /* demonstração: o banco é o demo-db.js, no próprio aparelho */
-const COLECOES = ["clientes","agendamentos","caixa","acompanhamentos","reservas"];
-function telaLogin(mostrar, msg){
-  const el = $("#login"); el.hidden = !mostrar;
-  document.body.classList.toggle("sem-login", mostrar);
-  if (msg != null) $("#lgMsg").textContent = msg;
-  if (mostrar) setTimeout(() => $("#lgEmail").focus(), 50);
-}
-const ERROS_LOGIN = {
-  "auth/invalid-credential":"E-mail ou senha incorretos.", "auth/wrong-password":"E-mail ou senha incorretos.", "auth/user-not-found":"E-mail ou senha incorretos.",
-  "auth/invalid-email":"Esse e-mail não parece certo.", "auth/too-many-requests":"Muitas tentativas. Espere alguns minutos e tente de novo.",
-  "auth/network-request-failed":"Sem internet. Confira a conexão e tente de novo.", "auth/user-disabled":"Esse acesso foi desativado."
-};
-/* cópia de tudo num arquivo .json, pra guardar de vez em quando (o plano gratuito não tem backup automático) */
-async function baixarCopia(){
-  if (!S.db) return;
-  const out = {geradoEm: new Date().toISOString(), config: {}, colecoes: {}};
-  try {
-    const g = await S.db.doc("config/geral").get(); if (g.exists) out.config.geral = g.data();
-    for (const n of COLECOES){ const q = await S.db.collection(n).get(); out.colecoes[n] = {}; q.docs.forEach(d => out.colecoes[n][d.id] = d.data()); }
-    const blob = new Blob([JSON.stringify(out, null, 1)], {type:"application/json"});
-    const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "rafaela-moura-copia-"+today()+".json"; document.body.appendChild(a); a.click(); a.remove();
-    toast("Cópia baixada");
-  } catch(e){ console.error(e); toast("Não deu pra gerar a cópia. Tente de novo."); }
-}
-/* volta uma cópia (.json) pro banco; usado na mudança do app pro Firebase e pra restaurar uma cópia */
-async function importarCopia(dados){
-  const escritas = [];
-  if (dados.config?.geral) escritas.push(["config","geral",dados.config.geral]);
-  Object.entries(dados.colecoes||{}).forEach(([n, docs]) => { if (COLECOES.includes(n)) Object.entries(docs||{}).forEach(([id, d]) => escritas.push([n, id, d])); });
-  for (let i = 0; i < escritas.length; i += 400){
-    const b = S.db.batch();
-    escritas.slice(i, i+400).forEach(([n, id, d]) => b.set(S.db.collection(n).doc(id), d));
-    await b.commit();
-  }
-  return escritas.length;
-}
-window.__essence = { importarCopia: d => importarCopia(d) };
-
-render();
-(function(){
-  if (!window.firebase){ S.dbChecked = true; render(); toast("Não deu pra carregar. Confira a internet e recarregue."); return; }
-  firebase.initializeApp(FIREBASE_CONFIG);
-  const auth = firebase.auth(); const db = firebase.firestore();
-  db.settings({ignoreUndefinedProperties: true, merge: true});
-  db.enablePersistence({synchronizeTabs: true}).catch(() => {});
-  let unsub = [];
-  $("#lgForm").onsubmit = async e => {
-    e.preventDefault(); const b = $("#lgBtn"); b.disabled = true; b.textContent = "Entrando…"; $("#lgMsg").textContent = "";
-    try { await auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL); await auth.signInWithEmailAndPassword($("#lgEmail").value.trim(), $("#lgSenha").value); }
-    catch(err){ $("#lgMsg").textContent = ERROS_LOGIN[err.code] || "Não deu pra entrar. Tente de novo."; console.error(err); }
-    b.disabled = false; b.textContent = "Entrar";
-  };
-  $("#lgEsqueci").onclick = async () => {
-    const email = $("#lgEmail").value.trim(); if (!email) { $("#lgMsg").textContent = "Escreva seu e-mail acima e toque de novo em “Esqueci a senha”."; return; }
-    try { await auth.sendPasswordResetEmail(email); $("#lgMsg").textContent = "Mandamos um link pra criar uma senha nova no e-mail "+email+". Olhe também o spam."; }
-    catch(err){ $("#lgMsg").textContent = ERROS_LOGIN[err.code] || "Não deu pra mandar o e-mail agora."; }
-  };
-  window.__sair = () => auth.signOut();
-  auth.onAuthStateChanged(user => {
-    unsub.forEach(f => f()); unsub = [];
-    if (!user){ S.db = null; S.user = null; S.dbChecked = false; telaLogin(true); return; }
-    S.user = user; S.db = db; S.dbChecked = true; telaLogin(false, ""); renderBanner();
-    const fail = e => { console.error(e); if (e && e.code === "permission-denied"){ toast("Este e-mail não tem acesso à agenda do estúdio."); auth.signOut(); } else toast("A conexão com o banco caiu. Recarregue a página."); };
-    unsub.push(db.doc("config/geral").onSnapshot(s => { S.cfg = s.exists ? {...DEFAULT_CFG, ...s.data(), msgs:{...DEFAULT_CFG.msgs, ...(s.data().msgs||{})}} : null; render(); }, fail));
-    unsub.push(db.collection("clientes").onSnapshot(q => { S.clientes = q.docs.map(d => ({id:d.id, ...d.data()})); render(); }, fail));
-    unsub.push(db.collection("agendamentos").orderBy("data","desc").limit(1000).onSnapshot(q => { S.ags = q.docs.map(d => ({id:d.id, ...d.data()})); render(); }, fail));
-    unsub.push(db.collection("caixa").orderBy("data","desc").limit(1000).onSnapshot(q => { S.caixa = q.docs.map(d => ({id:d.id, ...d.data(), valor: Number(d.data().valor)||0})); S.pronto.caixa = true; render(); }, fail));
-    unsub.push(db.collection("acompanhamentos").where("feito","==",false).onSnapshot(q => { S.acomp = q.docs.map(d => ({id:d.id, ...d.data()})); render(); }, fail));
-    unsub.push(db.collection("reservas").orderBy("data","desc").limit(1000).onSnapshot(q => { S.reservas = q.docs.map(d => ({id:d.id, ...d.data()})); S.pronto.reservas = true; render(); }, fail));
-  });
-})();
-})();
+/* agendamento: monta a mensagem e abre o WhatsApp */
+const hoje = new Date(); hoje.setMinutes(hoje.getMinutes() - hoje.getTimezoneOffset());
+$("#dia").min = hoje.toISOString().slice(0,10);
+const DOW = ["domingo","segunda","terça","quarta","quinta","sexta","sábado"];
+$("#fm").addEventListener("submit", e => {
+  e.preventDefault();
+  const nome = $("#nome").value.trim();
+  if (!nome){ $("#err").textContent = "Escreve seu nome pra Rafaela saber quem é."; $("#nome").focus(); return; }
+  $("#err").textContent = "";
+  const tec = $("#tec").value, tipo = document.querySelector('input[name="tipo"]:checked').value, per = document.querySelector('input[name="per"]:checked').value;
+  const d = $("#dia").value; let quando = "";
+  if (d){ const [y,m,dd] = d.split("-").map(Number); const dt = new Date(y, m-1, dd); quando = DOW[dt.getDay()]+", "+String(dd).padStart(2,"0")+"/"+String(m).padStart(2,"0"); }
+  const obs = $("#obs").value.trim();
+  let msg = "Oi, Rafaela! Sou a "+nome+" e vim pelo seu site. ";
+  msg += tec ? "Queria agendar "+(tipo === "primeira aplicação" ? tec : tipo+" de "+tec)+"." : "Queria agendar um horário, mas ainda não sei qual técnica escolher. Me ajuda?";
+  msg += quando ? "\nDia que eu prefiro: "+quando+", "+per+"." : "\nPeríodo que eu prefiro: "+per+".";
+  if (obs) msg += "\n"+obs;
+  msg += "\nVocê tem horário?";
+  window.open("https://wa.me/"+ZAP+"?text="+encodeURIComponent(msg), "_blank", "noopener");
+});
 </script>
-
 </body>
 </html>
