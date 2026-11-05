@@ -151,6 +151,7 @@ body.tem-reserva .wrap{padding-bottom:360px}
 [hidden]{display:none!important}
 /* logo da Rafaela no topo e faixa de demonstração */
 .logoimg{height:58px;width:auto;display:block}
+.vsite{display:block;margin-top:4px;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);text-decoration:none}
 .demo{display:flex;align-items:baseline;gap:8px;border-bottom:1px dashed #B9B0A6;padding:0 2px 8px;font-size:12px;color:var(--muted);margin-bottom:12px}
 .demo b{color:var(--ink);font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:11px}
 /* tela de login (fora do Claude, cada uma entra com o próprio e-mail e senha) */
@@ -205,8 +206,8 @@ body.sem-login nav.tabs,body.sem-login #reservaRoot{display:none}
 
 <div class="wrap">
   <header class="top">
-    <div class="logo"><img class="logoimg" src="logo.png" alt="Rafaela Moura · Lash Designer"><b id="mono" hidden></b><div id="brand" hidden></div></div>
-    <div class="today" id="todayLbl"></div>
+    <div class="logo"><a href="../" title="Ver o site"><img class="logoimg" src="logo.png" alt="Rafaela Moura · Lash Designer"></a><b id="mono" hidden></b><div id="brand" hidden></div></div>
+    <div class="today"><span id="todayLbl"></span><a class="vsite" href="../">Ver meu site ›</a></div>
   </header>
   <div id="banner"></div>
   <main id="view"><div class="empty"><b>Carregando a agenda…</b>Os agendamentos, clientes e o caixa aparecem aqui em instantes.</div></main>
@@ -278,7 +279,7 @@ const S = {
   prof: "todas",
   mes: today().slice(0,7),
   busca: "",
-  cfg: null, clientes: [], ags: [], caixa: [], acomp: [], reservas: [],
+  cfg: null, clientes: [], ags: [], caixa: [], acomp: [], reservas: [], pedidos: [],
   pronto: {cfg:false, clientes:false, ags:false, caixa:false, acomp:false},
   db: null, canWrite: true
 };
@@ -468,6 +469,26 @@ function bindProfChips(v){ v.querySelectorAll("[data-prof]").forEach(b => b.oncl
 /* abre no mês inteiro (como o Calendário do iPhone); tocar num dia mostra os horários dele embaixo */
 const dtAg = a => { const d = parseYmd(a.data); const [h,m] = String(a.hora||"0:0").split(":").map(Number); d.setHours(h||0, m||0, 0, 0); return d; };
 const primeiroNome = c => String(c?.nome||"").split(" ")[0];
+/* pedidos feitos pela cliente no site: ficam no topo até virar horário marcado (ou serem apagados) */
+const svcPorNome = n => cfg().servicos.find(s => String(s.nome||"").toLowerCase() === String(n||"").toLowerCase());
+function painelPedidos(){
+  const ls = S.pedidos || []; if (!ls.length) return "";
+  return '<details class="msgbox pedbox" open><summary><span class="cnt">'+ls.length+'</span>Pedidos do site</summary><p class="note" style="margin:0">Clientes que pediram horário pelo seu site. Toque em “Marcar horário” pra pôr na agenda.</p>'+
+    ls.map(p => { const quando = p.dia ? fmtDia(p.dia)+(p.periodo?", "+p.periodo:"") : (p.periodo ? "qualquer dia, "+p.periodo : "qualquer dia");
+      const resp = "Oi, "+String(p.nome||"").split(" ")[0]+"! Recebi seu pedido pelo site"+(p.tecnica?" pra "+p.tecnica:"")+". ";
+      return '<div class="it"><div class="row"><b class="grow">'+esc(p.nome||"Cliente")+'</b><span class="tag">'+esc(p.criadoEm ? fmtCurto(p.criadoEm.slice(0,10))+" "+p.criadoEm.slice(11,16) : "")+'</span></div>'+
+        '<div class="tag">'+esc((p.tecnica||"Quer ajuda pra escolher a técnica")+(p.tipo && p.tipo!=="primeira aplicação" ? " · "+p.tipo : ""))+'</div>'+
+        '<div class="tag">Prefere: '+esc(quando)+'</div>'+(p.obs?'<div class="tag">“'+esc(p.obs)+'”</div>':'')+
+        '<div class="row"><button class="btn-sm btn-primary" data-pmarca="'+esc(p.id)+'">Marcar horário</button>'+waBtn(p.telefone, resp, "Responder", "btn-sm")+'<button class="btn-sm btn-ghost" data-pdel="'+esc(p.id)+'">Apagar</button></div></div>'; }).join("")+'</details>';
+}
+function marcarPedido(id){
+  const p = (S.pedidos||[]).find(x => x.id === id); if (!p) return;
+  const sv = svcPorNome(p.tecnica); const c = clientePorTel(p.telefone);
+  const obs = [p.tipo && p.tipo !== "primeira aplicação" ? p.tipo[0].toUpperCase()+p.tipo.slice(1) : "", p.periodo ? "prefere "+p.periodo : "", p.obs||""].filter(Boolean).join(" · ");
+  formAg(null, c ? c.id : "", {pedidoId: p.id, data: p.dia || S.dia, servicos: sv ? [{id: sv.id, nome: sv.nome, preco: sv.preco ?? null, duracao: sv.duracao ?? null}] : [], servicoId: sv ? sv.id : "", obs});
+  if (!c){ const m = document.querySelector(".modal"); if (!m) return; const s = m.querySelector("#agCli"); s.value = "__nova"; s.dispatchEvent(new Event("change"));
+    m.querySelector("#ncNome").value = p.nome || ""; m.querySelector("#ncTel").value = p.telefone || ""; m.querySelector("#ncTel").dispatchEvent(new Event("input")); }
+}
 function painelConfirmar(){
   const agora = Date.now();
   const lista = S.ags.filter(a => a.status === "agendado" && agDaProf(a, S.prof)).map(a => ({a, h:(dtAg(a)-agora)/3600000})).filter(x => x.h > 0 && x.h <= 24).sort((x,y)=>x.h-y.h);
@@ -503,6 +524,7 @@ function viewAgenda(v){
   const doDia = S.ags.filter(a => a.data === S.dia && doProf(a)).sort((a,b)=> a.hora.localeCompare(b.hora));
   const [y,mm] = S.dia.slice(0,7).split("-").map(Number);
   let html = '<div class="datebar"><button class="btn-sm" data-cm="-1" aria-label="Mês anterior">‹</button><div class="label">'+MES[mm-1]+' '+y+'</div><button class="btn-sm" data-cm="1" aria-label="Próximo mês">›</button></div>';
+  html += painelPedidos();
   html += painelConfirmar();
   html += '<div class="busca-ag"><input id="buscaAg" type="search" autocomplete="off" placeholder="🔍 Buscar cliente por nome ou número"><div id="buscaAgRes" class="achou" style="margin-top:6px"></div></div>';
   html += profChips();
@@ -535,7 +557,9 @@ function viewAgenda(v){
     br.querySelectorAll("[data-ficha]").forEach(b => b.onclick = () => fichaCliente(b.dataset.ficha)); };
   v.querySelectorAll("[data-ag]").forEach(b => b.onclick = () => acaoAg(b.dataset.ag, b.dataset.act));
   bindConfWa(v);
-  const det = v.querySelector("details.msgbox"); if (det) det.ontoggle = () => { S.confAberto = det.open; };
+  const det = v.querySelector("details.msgbox:not(.pedbox)"); if (det) det.ontoggle = () => { S.confAberto = det.open; };
+  v.querySelectorAll("[data-pmarca]").forEach(b => b.onclick = () => marcarPedido(b.dataset.pmarca));
+  v.querySelectorAll("[data-pdel]").forEach(b => b.onclick = () => confirmar("Apagar este pedido do site?", "Apagar", () => run(()=>col("pedidos").doc(b.dataset.pdel).delete(), "Pedido apagado")));
 }
 /* ao tocar no botão do WhatsApp de confirmação, guarda a hora do envio (o app não sabe se ela mandou mesmo, só que abriu a conversa) */
 function bindConfWa(v){ v.querySelectorAll("[data-confwa]").forEach(b => b.addEventListener("click", () => { run(()=>col("agendamentos").doc(b.dataset.confwa).update({confEnviadaEm: new Date(Date.now() - new Date().getTimezoneOffset()*60000).toISOString().slice(0,16).replace("T"," ")})); })); }
@@ -645,8 +669,8 @@ function partesDe(ids, pidPadrao, extra, pidExtra){
   if (!m.size) m.set(pidPadrao, 0);
   return [...m].map(([profId, valor]) => ({profId, valor}));
 }
-function formAg(a, cliPre){
-  const ed = !!a; a = a || {data:S.dia, hora:"", profId: S.prof!=="todas"? S.prof : (cfg().profissionais[0]?.id||""), clienteId: cliPre||"", servicoId:"", valor:null, obs:""};
+function formAg(a, cliPre, pre){
+  const ed = !!a; a = a || {data:S.dia, hora:"", profId: S.prof!=="todas"? S.prof : (cfg().profissionais[0]?.id||""), clienteId: cliPre||"", servicoId:"", valor:null, obs:"", ...(pre||{})};
   const ps = cfg().profissionais;
   let sel = svcsDoAg(a).map(x => x.id).filter(Boolean);
   const dm = a.domicilio || {};
@@ -744,7 +768,7 @@ function formAg(a, cliPre){
         data: $("#agData").value, hora: $("#agHora").value, valor: num($("#agValor").value), duracao: Number($("#agDur").value)||null, obs: $("#agObs").value.trim() };
       closeModal();
       if (ed) await run(()=>col("agendamentos").doc(a.id).update(body), "Agendamento salvo");
-      else { await run(()=>col("agendamentos").doc().set({...body, status:"agendado", criadoEm: new Date().toISOString()}), "Horário marcado"); S.dia = body.data; render(); }
+      else { const ok = await run(()=>col("agendamentos").doc().set({...body, status:"agendado", criadoEm: new Date().toISOString()}), "Horário marcado"); if (ok && pre?.pedidoId) await run(()=>col("pedidos").doc(pre.pedidoId).delete()); S.dia = body.data; render(); }
     };
   });
 }
@@ -1049,7 +1073,7 @@ function formSvc(s){
 
 /* ---------- conexão com o banco (Firebase: login por e-mail e senha + Firestore) ---------- */
 const FIREBASE_CONFIG = {}; /* demonstração: o banco é o demo-db.js, no próprio aparelho */
-const COLECOES = ["clientes","agendamentos","caixa","acompanhamentos","reservas"];
+const COLECOES = ["clientes","agendamentos","caixa","acompanhamentos","reservas","pedidos"];
 function telaLogin(mostrar, msg){
   const el = $("#login"); el.hidden = !mostrar;
   document.body.classList.toggle("sem-login", mostrar);
@@ -1117,6 +1141,7 @@ render();
     unsub.push(db.collection("agendamentos").orderBy("data","desc").limit(1000).onSnapshot(q => { S.ags = q.docs.map(d => ({id:d.id, ...d.data()})); render(); }, fail));
     unsub.push(db.collection("caixa").orderBy("data","desc").limit(1000).onSnapshot(q => { S.caixa = q.docs.map(d => ({id:d.id, ...d.data(), valor: Number(d.data().valor)||0})); S.pronto.caixa = true; render(); }, fail));
     unsub.push(db.collection("acompanhamentos").where("feito","==",false).onSnapshot(q => { S.acomp = q.docs.map(d => ({id:d.id, ...d.data()})); render(); }, fail));
+    unsub.push(db.collection("pedidos").onSnapshot(q => { S.pedidos = q.docs.map(d => ({id:d.id, ...d.data()})).sort((x,y)=>String(x.criadoEm).localeCompare(String(y.criadoEm))); render(); }, fail));
     unsub.push(db.collection("reservas").orderBy("data","desc").limit(1000).onSnapshot(q => { S.reservas = q.docs.map(d => ({id:d.id, ...d.data()})); S.pronto.reservas = true; render(); }, fail));
   });
 })();

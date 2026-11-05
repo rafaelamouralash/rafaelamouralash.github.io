@@ -41,13 +41,13 @@
         a4: ag("c4", "s-fox", "Fox eyes", dia(3), "15:30", "agendado"),
         a5: ag("c1", "s-buco", "Epilação de buço", dia(5), "11:00", "agendado")
       },
-      caixa: {}, acompanhamentos: {}, reservas: {}
+      caixa: {}, acompanhamentos: {}, reservas: {}, pedidos: {}
     };
   }
   let store;
   try { store = JSON.parse(localStorage.getItem(KEY)); } catch(e){}
   if (!store || !store.config) store = seed();
-  ["config","clientes","agendamentos","caixa","acompanhamentos","reservas"].forEach(c => store[c] = store[c] || {});
+  ["config","clientes","agendamentos","caixa","acompanhamentos","reservas","pedidos"].forEach(c => store[c] = store[c] || {});
   const save = () => { try { localStorage.setItem(KEY, JSON.stringify(store)); } catch(e){} };
   save();
 
